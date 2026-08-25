@@ -129,6 +129,7 @@ td.time { white-space: nowrap; color: #5c6b7a; font-size: 12px; }
 <div class="topbar">
   <h1>瀚加日 <span>咨询管理后台</span></h1>
   <div style="display:flex;gap:10px;align-items:center;">
+    <a href="#" onclick="toggleAccounts();return false;" style="border-color:rgba(212,180,131,.5);color:#d4b483;">👥 账号管理</a>
     <span style="font-size:13px;color:rgba(255,255,255,.7);" id="loginName"></span>
     <a href="#" onclick="logout();return false;" style="border-color:rgba(192,57,43,.6);color:#e8a09b;">退出</a>
   </div>
@@ -144,6 +145,35 @@ td.time { white-space: nowrap; color: #5c6b7a; font-size: 12px; }
     <div class="stat-card"><div class="num" id="statToday">0</div><div class="lbl">今日新增</div></div>
     <div class="stat-card"><div class="num" id="statContact">0</div><div class="lbl">留下电话的客户</div></div>
   </div>
+
+  <!-- 账号管理面板 -->
+  <div id="accountsPanel" style="display:none;background:#fff;border-radius:10px;padding:24px;box-shadow:0 2px 12px rgba(13,43,69,.06);margin-bottom:24px;">
+    <h3 style="color:#0d2b45;font-size:16px;margin-bottom:16px;">👥 账号管理</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="border:1px solid #f0ece4;border-radius:8px;padding:16px;">
+        <h4 style="font-size:14px;color:#0d2b45;margin-bottom:12px;">创建新账号</h4>
+        <label style="font-size:12px;color:#5c6b7a;display:block;margin-bottom:4px;">用户名</label>
+        <input id="newUser" type="text" placeholder="新账号" style="width:100%;padding:9px 12px;border:1px solid #e0d8cc;border-radius:6px;font-size:13px;margin-bottom:10px;font-family:inherit;">
+        <label style="font-size:12px;color:#5c6b7a;display:block;margin-bottom:4px;">密码</label>
+        <input id="newPass" type="password" placeholder="新密码" style="width:100%;padding:9px 12px;border:1px solid #e0d8cc;border-radius:6px;font-size:13px;margin-bottom:12px;font-family:inherit;">
+        <button class="btn btn-export" onclick="createAccount()">创建账号</button>
+        <div id="createMsg" style="font-size:12px;margin-top:8px;min-height:16px;"></div>
+      </div>
+      <div style="border:1px solid #f0ece4;border-radius:8px;padding:16px;">
+        <h4 style="font-size:14px;color:#0d2b45;margin-bottom:12px;">修改密码</h4>
+        <label style="font-size:12px;color:#5c6b7a;display:block;margin-bottom:4px;">选择账号</label>
+        <select id="pwdUser" style="width:100%;padding:9px 12px;border:1px solid #e0d8cc;border-radius:6px;font-size:13px;margin-bottom:10px;font-family:inherit;"></select>
+        <label style="font-size:12px;color:#5c6b7a;display:block;margin-bottom:4px;">新密码</label>
+        <input id="pwdNew" type="password" placeholder="新密码" style="width:100%;padding:9px 12px;border:1px solid #e0d8cc;border-radius:6px;font-size:13px;margin-bottom:12px;font-family:inherit;">
+        <button class="btn btn-export" onclick="changePassword()">修改密码</button>
+        <div id="pwdMsg" style="font-size:12px;margin-top:8px;min-height:16px;"></div>
+      </div>
+    </div>
+    <div style="margin-top:20px;">
+      <h4 style="font-size:14px;color:#0d2b45;margin-bottom:10px;">现有账号</h4>
+      <div id="accountList"></div>
+    </div>
+  </div>
   <div id="tableWrap"></div>
   <div class="note">
     💡 <b>说明</b>：咨询数据保存在浏览器本地（localStorage），仅供演示/单机管理。
@@ -153,10 +183,31 @@ td.time { white-space: nowrap; color: #5c6b7a; font-size: 12px; }
 </div>
 
 <script>
-// ===== 登录配置（可自行修改账号密码）=====
-const ADMIN_USER = 'admin';
-const ADMIN_PASS = 'hanjiari2026';
+// ===== 账号管理（存 localStorage，可创建账号/改密码）=====
+const DEFAULT_USER = 'admin';
+const DEFAULT_PASS = 'hanjiari2026';
+const ACCOUNTS_KEY = 'hanjiari_admin_accounts';
 const SESSION_KEY = 'hanjiari_admin_session';
+
+// 读取账号列表，无则初始化默认账号
+function getAccounts() {
+  try {
+    const raw = localStorage.getItem(ACCOUNTS_KEY);
+    if (raw) {
+      const list = JSON.parse(raw);
+      if (Array.isArray(list) && list.length) return list;
+    }
+  } catch (e) {}
+  const def = [{ user: DEFAULT_USER, pass: DEFAULT_PASS, created: new Date().toLocaleDateString('zh-CN') }];
+  saveAccounts(def);
+  return def;
+}
+function saveAccounts(list) {
+  localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(list));
+}
+function findAccount(user) {
+  return getAccounts().find(a => a.user === user);
+}
 
 function checkAuth() {
   const s = sessionStorage.getItem(SESSION_KEY);
@@ -166,8 +217,10 @@ function checkAuth() {
 function showAdmin(user) {
   document.getElementById('loginView').style.display = 'none';
   document.getElementById('adminApp').style.display = 'block';
+  sessionStorage.setItem('hanjiari_admin_user', user);
   if (user) document.getElementById('loginName').textContent = '👤 ' + user;
   render();
+  renderAccounts();
 }
 
 function showLogin() {
@@ -181,13 +234,14 @@ function logout() {
   document.getElementById('loginPass').value = '';
 }
 
-// 登录表单
+// 登录表单：查账号列表
 document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const u = document.getElementById('loginUser').value.trim();
   const p = document.getElementById('loginPass').value;
   const err = document.getElementById('loginErr');
-  if (u === ADMIN_USER && p === ADMIN_PASS) {
+  const acc = findAccount(u);
+  if (acc && acc.pass === p) {
     sessionStorage.setItem(SESSION_KEY, '1');
     err.textContent = '';
     showAdmin(u);
@@ -199,12 +253,81 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
 // 启动：检查会话
 if (checkAuth()) {
-  showAdmin(ADMIN_USER);
+  showAdmin(sessionStorage.getItem('hanjiari_admin_user') || DEFAULT_USER);
 } else {
   showLogin();
 }
 
 const KEY = 'hanjiari_inquiries';
+
+// ===== 账号管理功能 =====
+function toggleAccounts() {
+  const panel = document.getElementById('accountsPanel');
+  const show = panel.style.display === 'none';
+  panel.style.display = show ? 'block' : 'none';
+  if (show) renderAccounts();
+}
+
+function renderAccounts() {
+  const list = getAccounts();
+  // 现有账号列表
+  const wrap = document.getElementById('accountList');
+  const cur = sessionStorage.getItem('hanjiari_admin_user') || '';
+  wrap.innerHTML = list.map(a => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border:1px solid #f0ece4;border-radius:6px;margin-bottom:6px;font-size:13px;">
+      <span>👤 ${esc(a.user)} <small style="color:#8a97a5;">创建于 ${esc(a.created || '-')}</small></span>
+      <button class="del-btn" onclick="delAccount('${esc(a.user)}')" ${a.user === 'admin' ? 'disabled style="opacity:.4;cursor:not-allowed;"' : ''}>删除</button>
+    </div>`).join('');
+  // 修改密码下拉
+  const sel = document.getElementById('pwdUser');
+  sel.innerHTML = list.map(a => `<option value="${esc(a.user)}">${esc(a.user)}</option>`).join('');
+}
+
+function createAccount() {
+  const u = document.getElementById('newUser').value.trim();
+  const p = document.getElementById('newPass').value;
+  const msg = document.getElementById('createMsg');
+  if (!u || !p) { msg.style.color = '#c0392b'; msg.textContent = '❌ 用户名和密码不能为空'; return; }
+  if (u.length < 3) { msg.style.color = '#c0392b'; msg.textContent = '❌ 用户名至少 3 个字符'; return; }
+  if (p.length < 6) { msg.style.color = '#c0392b'; msg.textContent = '❌ 密码至少 6 位'; return; }
+  if (findAccount(u)) { msg.style.color = '#c0392b'; msg.textContent = '❌ 该账号已存在'; return; }
+  const list = getAccounts();
+  list.push({ user: u, pass: p, created: new Date().toLocaleDateString('zh-CN') });
+  saveAccounts(list);
+  msg.style.color = '#1a7f37';
+  msg.textContent = '✅ 账号 ' + u + ' 创建成功';
+  document.getElementById('newUser').value = '';
+  document.getElementById('newPass').value = '';
+  renderAccounts();
+}
+
+function changePassword() {
+  const u = document.getElementById('pwdUser').value;
+  const p = document.getElementById('pwdNew').value;
+  const msg = document.getElementById('pwdMsg');
+  if (!p) { msg.style.color = '#c0392b'; msg.textContent = '❌ 新密码不能为空'; return; }
+  if (p.length < 6) { msg.style.color = '#c0392b'; msg.textContent = '❌ 密码至少 6 位'; return; }
+  const list = getAccounts();
+  const acc = list.find(a => a.user === u);
+  if (!acc) { msg.style.color = '#c0392b'; msg.textContent = '❌ 账号不存在'; return; }
+  acc.pass = p;
+  saveAccounts(list);
+  msg.style.color = '#1a7f37';
+  msg.textContent = '✅ 账号 ' + u + ' 密码已修改';
+  document.getElementById('pwdNew').value = '';
+}
+
+function delAccount(u) {
+  const list = getAccounts();
+  if (list.length <= 1) { alert('至少保留一个账号'); return; }
+  if (!confirm('确定删除账号 ' + u + '？')) return;
+  const idx = list.findIndex(a => a.user === u);
+  if (idx > -1) {
+    list.splice(idx, 1);
+    saveAccounts(list);
+    renderAccounts();
+  }
+}
 
 function getList() {
   try { return JSON.parse(localStorage.getItem(KEY) || '[]'); }
