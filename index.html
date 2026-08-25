@@ -318,30 +318,56 @@ section { padding: 96px 0; }
 @media (max-width: 960px) {
   .nav-links {
     position: fixed; top: 72px; left: 0; right: 0; background: var(--white);
-    flex-direction: column; padding: 20px 28px 28px; gap: 6px;
+    flex-direction: column; padding: 16px 28px 28px; gap: 2px;
     border-bottom: 1px solid var(--line); display: none; box-shadow: 0 20px 40px rgba(13,43,69,.1);
+    max-height: calc(100vh - 72px); overflow-y: auto;
   }
   .nav-links.open { display: flex; }
-  .nav-links a { padding: 12px 0; }
+  .nav-links a { padding: 14px 0; font-size: 16px; }
+  .nav-cta { text-align: center; margin-top: 8px; padding: 14px 22px !important; }
   .nav-toggle { display: flex; }
-  .hero h1 { font-size: 34px; }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-inner { padding: 130px 24px 90px; }
+  .hero h1 { font-size: 30px; line-height: 1.45; }
+  .hero-sub { font-size: 15px; }
+  .hero-meta { gap: 24px; margin-top: 36px; }
+  .hero-btns { margin-top: 40px; }
+  .btn { padding: 14px 30px; font-size: 14px; width: 100%; text-align: center; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .service-card { padding: 28px 22px; }
+  .service-card h3 { font-size: 19px; }
   .team-grid { grid-template-columns: 1fr; }
-  .trust-inner { grid-template-columns: repeat(2, 1fr); }
+  .team-card { padding: 28px 24px; }
+  .trust-inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .detail-grid { grid-template-columns: 1fr; }
-  .adv-grid { grid-template-columns: 1fr; }
-  .news-grid { grid-template-columns: 1fr; }
+  .detail-block { padding: 32px 26px; }
+  .adv-grid { grid-template-columns: 1fr; gap: 16px; }
+  .news-grid { grid-template-columns: 1fr; gap: 20px; }
   .member-wrap { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .form-row { grid-template-columns: 1fr; }
-  section { padding: 64px 0; }
+  .form-group input, .form-group select { padding: 14px; font-size: 16px; }
+  section { padding: 56px 0; }
+  .section-head { margin-bottom: 48px; }
+  .section-head h2 { font-size: 28px; }
+  .container { padding: 0 20px; }
+  /* 月间/年间双列在手机单列 */
+  .detail-wide > div > div { grid-template-columns: 1fr !important; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
 }
 @media (max-width: 560px) {
   .services-grid { grid-template-columns: 1fr; }
-  .hero-inner { padding: 120px 22px 80px; }
-  .hero h1 { font-size: 28px; }
-  .section-head h2 { font-size: 26px; }
+  .trust-inner { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .trust-item .num { font-size: 32px; }
+  .hero-inner { padding: 110px 20px 70px; }
+  .hero h1 { font-size: 25px; }
+  .hero-tag { font-size: 11px; letter-spacing: .2em; }
+  .section-head h2 { font-size: 24px; }
+  .cta-inner h2 { font-size: 26px; }
+  .news-thumb { height: 150px; }
+  .contact-card { padding: 28px 22px; }
+  .team-avatar { width: 70px; height: 70px; font-size: 26px; }
+  .brand-sub { display: none; } /* 手机上隐藏英文副标题，只留中文品牌名 */
 }
 
 /* ===== 语言切换器 ===== */
@@ -354,7 +380,8 @@ section { padding: 96px 0; }
 .lang-btn:hover { border-color: var(--gold); color: var(--navy); }
 .lang-btn.active { background: var(--navy); border-color: var(--navy); color: #fff; }
 @media (max-width: 960px) {
-  .lang-switch { margin-left: 0; margin-top: 12px; flex-wrap: wrap; }
+  .lang-switch { margin-left: 0; margin-top: 16px; flex-wrap: wrap; gap: 8px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .lang-btn { padding: 8px 16px; font-size: 13px; flex: 1; text-align: center; }
 }
 </style>
 </head>
