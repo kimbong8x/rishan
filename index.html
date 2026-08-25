@@ -724,27 +724,24 @@ section { padding: 96px 0; }
 <section class="member" id="member">
   <div class="container member-wrap">
     <div class="member-info">
-      <span class="eyebrow" style="font-size:12px;letter-spacing:.35em;color:var(--gold);">Member Registration</span>
-      <h2><span data-i18n="member_h2">注册会员，获取免费咨询</span></h2>
-      <p><span data-i18n="member_p1">注册成为瀚加日会员，定期获取最新税务信息、瀚加日速报、瀚加日解读等精彩内容！已有</span> <strong>5287</strong> 人注册成功。</p>
-      <div class="count">5287 <small><span data-i18n="member_cnt">人已注册</span></small></div>
-      <p style="margin-top:20px;font-size:14px;"><span data-i18n="member_p2">企业设立、变更登记、注销、投资日本等案例分享，尽在会员中心。</span></p>
+      <span class="eyebrow" style="font-size:12px;letter-spacing:.35em;color:var(--gold);">Online Inquiry</span>
+      <h2><span data-i18n="member_h2">在线咨询，免费获取专业建议</span></h2>
+      <p><span data-i18n="member_p1">请留下您的联系方式与咨询内容，资深 CPA 顾问将尽快与您联系，为您提供免费的专业财税建议。</span></p>
+      <div style="margin-top:28px;">
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;"><span style="font-size:20px;">💬</span><span style="font-size:14px;color:var(--ink);"><span data-i18n="member_p2">企业设立、财税规划、投资日本等任何疑问，欢迎随时咨询。</span></span></div>
+      </div>
     </div>
     <form class="member-form" id="memberForm">
       <div class="form-row">
-        <div class="form-group"><label><span data-i18n="f_name">姓名</span> <span class="req">*</span></label><input type="text" name="name" required data-i18n-ph="f_name_ph" placeholder="请输入姓名"></div>
-        <div class="form-group"><label><span data-i18n="f_company">公司</span> <span class="req">*</span></label><input type="text" name="company" required data-i18n-ph="f_company_ph" placeholder="请输入公司名称"></div>
+        <div class="form-group"><label><span data-i18n="f_contact">联系人</span> <span class="req">*</span></label><input type="text" name="contact" required data-i18n-ph="f_contact_ph" placeholder="请输入联系人姓名"></div>
+        <div class="form-group"><label><span data-i18n="f_company">公司名</span> <span class="req">*</span></label><input type="text" name="company" required data-i18n-ph="f_company_ph" placeholder="请输入公司名称"></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label><span data-i18n="f_addr">地址</span> <span class="req">*</span></label><input type="text" name="address" required data-i18n-ph="f_addr_ph" placeholder="请输入地址"></div>
         <div class="form-group"><label><span data-i18n="f_phone">电话</span> <span class="req">*</span></label><input type="tel" name="phone" required data-i18n-ph="f_phone_ph" placeholder="请输入联系电话"></div>
+        <div class="form-group"><label><span data-i18n="f_email">邮箱地址</span> <span class="req">*</span></label><input type="email" name="email" required data-i18n-ph="f_email_ph" placeholder="请输入邮箱地址"></div>
       </div>
-      <div class="form-row">
-        <div class="form-group"><label><span data-i18n="f_email">邮箱</span> <span class="req">*</span></label><input type="email" name="email" required data-i18n-ph="f_email_ph" placeholder="请输入邮箱"></div>
-        <div class="form-group"><label><span data-i18n="f_pwd">设置密码</span> <span class="req">*</span></label><input type="password" name="password" required data-i18n-ph="f_pwd_ph" placeholder="请设置密码"></div>
-      </div>
-      <div class="form-group full"><label><span data-i18n="f_captcha">验证码</span> <span class="req">*</span></label><input type="text" name="captcha" required data-i18n-ph="f_captcha_ph" placeholder="请输入验证码"></div>
-      <button type="submit" class="form-submit"><span data-i18n="f_submit">立即注册</span></button>
+      <div class="form-group full"><label><span data-i18n="f_message">咨询内容</span> <span class="req">*</span></label><textarea name="message" rows="4" required data-i18n-ph="f_message_ph" placeholder="请输入您想咨询的内容" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:6px;font-size:14px;font-family:var(--sans);resize:vertical;"></textarea></div>
+      <button type="submit" class="form-submit"><span data-i18n="f_submit">提交咨询</span></button>
       <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:14px;" id="formMsg"></p>
     </form>
   </div>
@@ -812,7 +809,7 @@ section { padding: 96px 0; }
     </div>
     <div class="footer-bottom">
       <span><span data-i18n="foot_copy">版权所有 © 2026 上海瀚加日财务咨询有限公司 官方网站</span></span>
-      <span>沪ICP备XXXXXXXX号-1 · 技术支持：HANJIARI TECH</span>
+      <span>沪ICP备XXXXXXXX号-1 · 技术支持：HANJIARI TECH · <a href="./admin.html" target="_blank" style="color:rgba(255,255,255,.4);">后台</a></span>
     </div>
   </div>
 </footer>
@@ -1463,55 +1460,43 @@ const I18N = {
     "en": "Read More →"
   },
   "member_h2": {
-    "ja": "会員登録で無料相談",
-    "ko": "회원 가입하고 무료 상담",
-    "en": "Register for Free Consultation"
+    "ja": "オンライン相談・無料アドバイス",
+    "ko": "온라인 상담·무료 전문 조언",
+    "en": "Online Inquiry & Free Consultation"
   },
   "member_p1": {
-    "ja": "瀚加日会員になると、最新税務情報・瀚加日速報・専門解説を定期配信！すでに",
-    "ko": "한일세무회계 회원이 되면 최신 세무 정보·속보·전문 해설을 정기 발송! 이미",
-    "en": "Become a Hanjiari member to receive the latest tax updates and analysis regularly! Already"
+    "ja": "ご連絡先とお問い合わせ内容をご記入ください。経験豊富なCPAがすぐにご連絡いたします。",
+    "ko": "연락처와 문의 내용을 남겨주세요. 경험 많은 CPA가 신속히 연락드립니다.",
+    "en": "Leave your contact details and inquiry. Our senior CPA will reach out to you shortly."
   },
-  "member_cnt": {
-    "ja": "人が登録済み",
-    "ko": "명이 가입했습니다",
-    "en": "members registered"
-  },
+  
   "member_p2": {
-    "ja": "企業設立・変更登記・清算・日本投資などのケース共有は会員センターで。",
-    "ko": "법인 설립·변경 등기·청산·일본 투자 등 사례 공유는 회원센터에서 확인하세요.",
-    "en": "Case studies on establishment, registration, liquidation, and Japan investment await in the member center."
+    "ja": "会社設立、財税プランニング、日本投資など、どんなご質問でもお気軽にどうぞ。",
+    "ko": "법인 설립, 재세무 플래닝, 일본 투자 등 어떤 문의든 편하게 남겨주세요.",
+    "en": "Any questions on company setup, tax planning, or Japan investment — feel free to ask."
   },
-  "f_name": {
-    "ja": "氏名",
-    "ko": "성명",
-    "en": "Name"
+  "f_contact": {
+    "ja": "ご担当者名",
+    "ko": "담당자",
+    "en": "Contact Person"
   },
-  "f_name_ph": {
-    "ja": "氏名を入力",
-    "ko": "성명을 입력하세요",
-    "en": "Enter your name"
+  "f_contact_ph": {
+    "ja": "ご担当者名を入力",
+    "ko": "담당자 이름을 입력하세요",
+    "en": "Enter contact person name"
   },
   "f_company": {
-    "ja": "会社",
-    "ko": "회사",
-    "en": "Company"
+    "ja": "会社名",
+    "ko": "회사명",
+    "en": "Company Name"
   },
   "f_company_ph": {
     "ja": "会社名を入力",
     "ko": "회사명을 입력하세요",
     "en": "Enter company name"
   },
-  "f_addr": {
-    "ja": "住所",
-    "ko": "주소",
-    "en": "Address"
-  },
-  "f_addr_ph": {
-    "ja": "住所を入力",
-    "ko": "주소를 입력하세요",
-    "en": "Enter address"
-  },
+  
+  
   "f_phone": {
     "ja": "電話",
     "ko": "전화",
@@ -1523,39 +1508,33 @@ const I18N = {
     "en": "Enter phone number"
   },
   "f_email": {
-    "ja": "メール",
-    "ko": "이메일",
-    "en": "Email"
+    "ja": "メールアドレス",
+    "ko": "이메일 주소",
+    "en": "Email Address"
   },
   "f_email_ph": {
     "ja": "メールアドレスを入力",
     "ko": "이메일을 입력하세요",
     "en": "Enter email"
   },
-  "f_pwd": {
-    "ja": "パスワード設定",
-    "ko": "비밀번호 설정",
-    "en": "Set Password"
+  
+  
+  
+  
+  "f_message": {
+    "ja": "お問い合わせ内容",
+    "ko": "문의 내용",
+    "en": "Inquiry Message"
   },
-  "f_pwd_ph": {
-    "ja": "パスワードを設定",
-    "ko": "비밀번호를 설정하세요",
-    "en": "Set a password"
-  },
-  "f_captcha": {
-    "ja": "認証コード",
-    "ko": "인증 코드",
-    "en": "Captcha"
-  },
-  "f_captcha_ph": {
-    "ja": "認証コードを入力",
-    "ko": "인증 코드를 입력하세요",
-    "en": "Enter captcha"
+  "f_message_ph": {
+    "ja": "お問い合わせ内容をご入力ください",
+    "ko": "문의 내용을 입력하세요",
+    "en": "Enter your inquiry"
   },
   "f_submit": {
-    "ja": "今すぐ登録",
-    "ko": "지금 가입",
-    "en": "Register Now"
+    "ja": "送信する",
+    "ko": "문의 제출",
+    "en": "Submit Inquiry"
   },
   "contact_p": {
     "ja": "ご不明な点がございましたら、お電話またはメッセージでお気軽にご相談ください。",
@@ -1691,12 +1670,28 @@ const links = document.getElementById('navLinks');
 toggle.addEventListener('click', () => links.classList.toggle('open'));
 links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
-// 会员表单提交（演示）
+// 在线咨询表单提交（存 localStorage，后台 admin.html 读取）
 document.getElementById('memberForm').addEventListener('submit', function(e) {
   e.preventDefault();
+  const fd = new FormData(this);
+  const inquiry = {
+    id: Date.now(),
+    contact: fd.get('contact') || '',
+    company: fd.get('company') || '',
+    phone: fd.get('phone') || '',
+    email: fd.get('email') || '',
+    message: fd.get('message') || '',
+    time: new Date().toLocaleString('zh-CN', { hour12: false }),
+    lang: document.documentElement.lang || 'zh'
+  };
+  // 保存到 localStorage（键: hanjiari_inquiries）
+  let list = [];
+  try { list = JSON.parse(localStorage.getItem('hanjiari_inquiries') || '[]'); } catch (err) {}
+  list.unshift(inquiry);
+  localStorage.setItem('hanjiari_inquiries', JSON.stringify(list));
   const msg = document.getElementById('formMsg');
   msg.style.color = '#1a7f37';
-  msg.textContent = '✅ 注册信息已提交（演示模式）。正式部署后接入后端即可。';
+  msg.textContent = '✅ 咨询已提交，我们会尽快与您联系！';
   this.reset();
 });
 </script>
