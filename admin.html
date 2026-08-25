@@ -71,6 +71,32 @@ td.time { white-space: nowrap; color: #5c6b7a; font-size: 12px; }
   margin-top: 20px; font-size: 12px; color: #8a97a5; background: #fff;
   border: 1px dashed #e0d8cc; border-radius: 8px; padding: 14px 18px;
 }
+/* ===== 登录界面 ===== */
+.login-wrap {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, #0a2240 0%, #0d2b45 55%, #0e3a63 100%);
+  padding: 20px;
+}
+.login-box {
+  background: #fff; border-radius: 14px; padding: 44px 40px; width: 100%; max-width: 380px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.35);
+}
+.login-box h2 { font-size: 20px; color: #0d2b45; margin-bottom: 6px; }
+.login-box .sub { font-size: 13px; color: #8a97a5; margin-bottom: 28px; }
+.login-box label { display: block; font-size: 13px; color: #1c2733; margin-bottom: 6px; }
+.login-box input {
+  width: 100%; padding: 12px 14px; border: 1px solid #e0d8cc; border-radius: 8px;
+  font-size: 14px; font-family: inherit; margin-bottom: 18px; transition: border .2s;
+}
+.login-box input:focus { outline: none; border-color: #b8935a; }
+.login-btn {
+  width: 100%; padding: 13px; background: #0d2b45; color: #fff; border: 0;
+  border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit;
+  transition: background .2s;
+}
+.login-btn:hover { background: #14406b; }
+.login-err { color: #c0392b; font-size: 13px; margin-top: 12px; text-align: center; min-height: 20px; }
+.login-box .lock { font-size: 36px; text-align: center; margin-bottom: 12px; }
 @media (max-width: 768px) {
   .stats { grid-template-columns: 1fr; }
   .container { padding: 0 12px; }
@@ -81,9 +107,31 @@ td.time { white-space: nowrap; color: #5c6b7a; font-size: 12px; }
 </style>
 </head>
 <body>
+<!-- 登录界面 -->
+<div class="login-wrap" id="loginView">
+  <div class="login-box">
+    <div class="lock">🔒</div>
+    <h2>后台登录</h2>
+    <div class="sub">瀚加日财务咨询 · 咨询管理</div>
+    <form id="loginForm">
+      <label>账号</label>
+      <input type="text" id="loginUser" autocomplete="username" placeholder="请输入账号">
+      <label>密码</label>
+      <input type="password" id="loginPass" autocomplete="current-password" placeholder="请输入密码">
+      <button type="submit" class="login-btn">登 录</button>
+      <div class="login-err" id="loginErr"></div>
+    </form>
+  </div>
+</div>
+
+<!-- 管理界面 -->
+<div id="adminApp" style="display:none;">
 <div class="topbar">
   <h1>瀚加日 <span>咨询管理后台</span></h1>
-  <a href="./index.html" target="_blank">← 返回官网</a>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <span style="font-size:13px;color:rgba(255,255,255,.7);" id="loginName"></span>
+    <a href="#" onclick="logout();return false;" style="border-color:rgba(192,57,43,.6);color:#e8a09b;">退出</a>
+  </div>
 </div>
 <div class="container">
   <div class="toolbar">
@@ -102,8 +150,60 @@ td.time { white-space: nowrap; color: #5c6b7a; font-size: 12px; }
     如需多设备实时查看，可接入后端服务（如 Formspree 邮件通知、Google Sheets 或自建 API）。
   </div>
 </div>
+</div>
 
 <script>
+// ===== 登录配置（可自行修改账号密码）=====
+const ADMIN_USER = 'admin';
+const ADMIN_PASS = 'hanjiari2026';
+const SESSION_KEY = 'hanjiari_admin_session';
+
+function checkAuth() {
+  const s = sessionStorage.getItem(SESSION_KEY);
+  return s === '1';
+}
+
+function showAdmin(user) {
+  document.getElementById('loginView').style.display = 'none';
+  document.getElementById('adminApp').style.display = 'block';
+  if (user) document.getElementById('loginName').textContent = '👤 ' + user;
+  render();
+}
+
+function showLogin() {
+  document.getElementById('loginView').style.display = 'flex';
+  document.getElementById('adminApp').style.display = 'none';
+}
+
+function logout() {
+  sessionStorage.removeItem(SESSION_KEY);
+  showLogin();
+  document.getElementById('loginPass').value = '';
+}
+
+// 登录表单
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  const err = document.getElementById('loginErr');
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    sessionStorage.setItem(SESSION_KEY, '1');
+    err.textContent = '';
+    showAdmin(u);
+  } else {
+    err.textContent = '❌ 账号或密码错误';
+    document.getElementById('loginPass').value = '';
+  }
+});
+
+// 启动：检查会话
+if (checkAuth()) {
+  showAdmin(ADMIN_USER);
+} else {
+  showLogin();
+}
+
 const KEY = 'hanjiari_inquiries';
 
 function getList() {
