@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>上海瀚加日财务咨询有限公司 | HANIL FINANCIAL CONSULTING</title>
+<title>上海瀚加日财务咨询有限公司 | HANJIARI FINANCIAL CONSULTING</title>
 <meta name="description" content="瀚加日财务咨询（上海）有限公司 — 深耕中国设立、会计、税务、审计咨询二十年。企业设立登记、代理记账、财税咨询、审计服务、外国人就业许可等一站式服务。">
 <style>
 /* ============ 设计系统 ============ */
@@ -18,11 +18,22 @@
   --paper: #f7f5f1;
   --white: #ffffff;
   --line: #e3ddd2;
-  --serif: "Noto Serif SC", "Songti SC", "SimSun", Georgia, serif;
-  --sans: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  --serif: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", system-ui, sans-serif;
+  --sans: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", system-ui, sans-serif;
   --shadow: 0 10px 40px rgba(13, 43, 69, .08);
   --shadow-lg: 0 24px 60px rgba(13, 43, 69, .14);
 }
+/* 韩文语言：使用 Malgun Gothic (맑은 고딕) */
+html[lang="ko"] {
+  --serif: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", "Microsoft YaHei", system-ui, sans-serif;
+  --sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", "Microsoft YaHei", system-ui, sans-serif;
+}
+/* 日文语言：雅黑可覆盖日文汉字，另加 Hiragino 兜底 */
+html[lang="ja"] {
+  --serif: "Microsoft YaHei", "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, system-ui, sans-serif;
+  --sans: "Microsoft YaHei", "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, system-ui, sans-serif;
+}
+/* 英文语言：保持微软雅黑为正文，标题可加 Georgia 式衬线感（保守起见统一用雅黑） */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.7; }
@@ -73,49 +84,64 @@ section { padding: 96px 0; }
 .hero::before {
   content: ""; position: absolute; inset: 0;
   background:
-    radial-gradient(600px 400px at 85% 20%, rgba(184,147,90,.18), transparent 60%),
-    radial-gradient(500px 380px at 10% 90%, rgba(26,79,133,.45), transparent 60%);
+    radial-gradient(900px 500px at 88% 10%, rgba(184,147,90,.22), transparent 55%),
+    radial-gradient(700px 500px at 5% 100%, rgba(26,79,133,.5), transparent 60%),
+    linear-gradient(160deg, #0a2240 0%, var(--navy) 55%, #0e3a63 100%);
+}
+.hero::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.25), transparent),
+    radial-gradient(2px 2px at 40% 65%, rgba(255,255,255,.18), transparent),
+    radial-gradient(2px 2px at 60% 25%, rgba(255,255,255,.22), transparent),
+    radial-gradient(2px 2px at 75% 55%, rgba(255,255,255,.15), transparent),
+    radial-gradient(2px 2px at 90% 35%, rgba(255,255,255,.2), transparent);
+  background-size: 240px 240px;
+  opacity: .6;
 }
 .hero-pattern {
   position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
-  width: 560px; height: 560px; opacity: .1;
+  width: 560px; height: 560px; opacity: .08;
   background-image:
     linear-gradient(var(--gold-light) 1px, transparent 1px),
     linear-gradient(90deg, var(--gold-light) 1px, transparent 1px);
   background-size: 44px 44px;
 }
-.hero-inner { position: relative; max-width: 1200px; margin: 0 auto; padding: 150px 28px 110px; }
+.hero-inner { position: relative; max-width: 1200px; margin: 0 auto; padding: 160px 28px 120px; }
 .hero-tag {
   display: inline-block; font-size: 12px; letter-spacing: .3em;
   color: var(--gold-light); border: 1px solid rgba(184,147,90,.5);
-  padding: 6px 16px; border-radius: 30px; margin-bottom: 28px;
+  padding: 6px 16px; border-radius: 30px; margin-bottom: 30px;
+  background: rgba(184,147,90,.08);
 }
 .hero h1 {
-  font-family: var(--serif); font-weight: 700; font-size: 46px; line-height: 1.35;
-  max-width: 680px; letter-spacing: .02em;
+  font-family: var(--serif); font-weight: 700; font-size: 48px; line-height: 1.4;
+  max-width: 720px; letter-spacing: .02em;
+  text-shadow: 0 2px 30px rgba(0,0,0,.25);
 }
 .hero h1 .gold { color: var(--gold-light); }
-.hero-sub { margin-top: 22px; font-size: 17px; color: rgba(255,255,255,.85); max-width: 600px; line-height: 1.9; }
-.hero-meta { display: flex; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
-.hero-meta-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255,255,255,.9); }
+.hero-sub { margin-top: 24px; font-size: 17px; color: rgba(255,255,255,.88); max-width: 620px; line-height: 2; }
+.hero-meta { display: flex; gap: 44px; margin-top: 44px; flex-wrap: wrap; }
+.hero-meta-item { display: flex; align-items: center; gap: 14px; font-size: 14px; color: rgba(255,255,255,.9); }
 .hero-meta-item .ico {
-  width: 40px; height: 40px; border-radius: 50%;
+  width: 42px; height: 42px; border-radius: 50%;
   border: 1px solid rgba(184,147,90,.6); color: var(--gold-light);
   display: flex; align-items: center; justify-content: center; font-size: 16px; font-style: normal;
+  background: rgba(184,147,90,.12);
 }
 .hero-meta-item b { display: block; font-size: 15px; color: #fff; }
 .hero-meta-item small { color: rgba(255,255,255,.6); }
-.hero-btns { display: flex; gap: 16px; margin-top: 48px; flex-wrap: wrap; }
+.hero-btns { display: flex; gap: 16px; margin-top: 52px; flex-wrap: wrap; }
 .btn {
-  display: inline-block; padding: 14px 34px; border-radius: 6px;
+  display: inline-block; padding: 15px 36px; border-radius: 8px;
   font-size: 15px; font-weight: 600; letter-spacing: .05em; transition: all .25s; cursor: pointer;
 }
-.btn-gold { background: var(--gold); color: #fff; }
-.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(184,147,90,.35); }
-.btn-outline { border: 1px solid rgba(255,255,255,.5); color: #fff; }
-.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.1); }
-.btn-navy { background: var(--navy); color: #fff; }
-.btn-navy:hover { background: var(--navy-2); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(13,43,69,.25); }
+.btn-gold { background: linear-gradient(135deg, #c8a76b, var(--gold)); color: #fff; box-shadow: 0 6px 24px rgba(184,147,90,.35); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(184,147,90,.45); filter: brightness(1.05); }
+.btn-outline { border: 1px solid rgba(255,255,255,.5); color: #fff; background: rgba(255,255,255,.04); backdrop-filter: blur(4px); }
+.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.12); transform: translateY(-2px); }
+.btn-navy { background: var(--navy); color: #fff; box-shadow: 0 6px 20px rgba(13,43,69,.25); }
+.btn-navy:hover { background: var(--navy-2); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(13,43,69,.3); }
 
 /* ============ 信任指标带 ============ */
 .trust-strip { background: var(--paper); border-bottom: 1px solid var(--line); padding: 36px 0; }
@@ -126,63 +152,95 @@ section { padding: 96px 0; }
 .trust-item .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
 /* ============ 区块通用 ============ */
-.section-head { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+.section-head { text-align: center; max-width: 760px; margin: 0 auto 68px; }
 .section-head .eyebrow {
-  font-size: 12px; letter-spacing: .35em; color: var(--gold); text-transform: uppercase; margin-bottom: 14px;
+  font-size: 12px; letter-spacing: .35em; color: var(--gold); text-transform: uppercase; margin-bottom: 16px;
+  display: inline-block;
 }
-.section-head h2 { font-family: var(--serif); font-size: 34px; font-weight: 700; color: var(--navy); }
-.section-head p { margin-top: 16px; color: var(--muted); font-size: 15px; }
-.section-head .jp { display: block; margin-top: 8px; font-size: 13px; color: var(--muted); letter-spacing: .1em; }
+.section-head .eyebrow::after { content: ""; display: block; width: 40px; height: 2px; background: var(--gold); margin: 10px auto 0; opacity: .6; }
+.section-head h2 { font-family: var(--serif); font-size: 36px; font-weight: 700; color: var(--navy); letter-spacing: .02em; }
+.section-head p { margin-top: 18px; color: var(--muted); font-size: 15px; line-height: 1.9; }
+.section-head .jp { display: block; margin-top: 10px; font-size: 13px; color: var(--muted); letter-spacing: .1em; }
 
 /* ============ 核心业务卡片 ============ */
-.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
 .service-card {
-  background: var(--white); border: 1px solid var(--line); border-radius: 10px;
-  padding: 36px 28px; transition: all .3s; position: relative; overflow: hidden;
+  background: var(--white); border-radius: 14px;
+  padding: 40px 30px; transition: all .35s; position: relative; overflow: hidden;
+  box-shadow: 0 2px 16px rgba(13,43,69,.05);
 }
 .service-card::before {
   content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--gold), var(--gold-light)); opacity: 0; transition: opacity .3s;
 }
-.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(13,43,69,.13); border: 0; }
 .service-card:hover::before { opacity: 1; }
-.service-card .no { font-family: var(--serif); font-size: 13px; color: var(--gold); letter-spacing: .2em; }
-.service-card h3 { font-family: var(--serif); font-size: 21px; color: var(--navy); margin: 10px 0 6px; }
-.service-card .en { font-size: 11px; color: var(--muted); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 14px; }
-.service-card p { font-size: 14px; color: var(--muted); }
-.service-card ul { margin-top: 16px; }
-.service-card ul li { font-size: 13px; color: var(--muted); padding: 4px 0; padding-left: 18px; position: relative; }
+.service-card .no { font-family: var(--serif); font-size: 12px; color: var(--gold); letter-spacing: .22em; }
+.service-card h3 { font-family: var(--serif); font-size: 22px; color: var(--navy); margin: 12px 0 6px; }
+.service-card .en { font-size: 11px; color: var(--muted); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 16px; }
+.service-card p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+.service-card ul { margin-top: 18px; border-top: 1px dashed var(--line); padding-top: 14px; }
+.service-card ul li { font-size: 13px; color: var(--muted); padding: 5px 0; padding-left: 18px; position: relative; }
 .service-card ul li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+
+/* ============ 核心团队 ============ */
+.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 52px; }
+.team-card {
+  display: flex; gap: 26px; background: var(--white); border: 0; border-radius: 16px;
+  padding: 36px; transition: all .35s; box-shadow: 0 2px 16px rgba(13,43,69,.05);
+}
+.team-card:hover { box-shadow: 0 18px 46px rgba(13,43,69,.12); transform: translateY(-5px); }
+.team-avatar {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-3), var(--navy)); color: var(--gold-light);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 34px; font-weight: 700; flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(13,43,69,.25);
+  border: 3px solid rgba(184,147,90,.35);
+}
+.team-info h3 { font-family: var(--serif); font-size: 21px; color: var(--navy); }
+.team-info h3 small { font-size: 13px; color: var(--muted); font-weight: 400; margin-left: 6px; }
+.team-title { font-size: 12px; color: var(--gold); letter-spacing: .08em; margin: 6px 0 16px; }
+.team-info ul li { font-size: 13px; color: var(--muted); padding: 4px 0; padding-left: 18px; position: relative; line-height: 1.8; }
+.team-info ul li::before { content: "◆"; position: absolute; left: 0; font-size: 7px; color: var(--gold); top: 9px; }
 
 /* ============ 业务内容详解 ============ */
 .detail-wrap { background: var(--paper); }
 .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 .detail-block {
-  background: var(--white); border-radius: 10px; padding: 40px; border: 1px solid var(--line);
-  transition: box-shadow .3s;
+  background: var(--white); border-radius: 14px; padding: 44px; border: 0;
+  box-shadow: 0 2px 16px rgba(13,43,69,.05);
+  transition: box-shadow .3s, transform .3s;
 }
-.detail-block:hover { box-shadow: var(--shadow); }
+.detail-block:hover { box-shadow: 0 16px 44px rgba(13,43,69,.1); transform: translateY(-3px); }
 .detail-block h3 {
-  font-family: var(--serif); font-size: 22px; color: var(--navy); margin-bottom: 6px; display: flex; align-items: center; gap: 12px;
+  font-family: var(--serif); font-size: 22px; color: var(--navy); margin-bottom: 6px; display: flex; align-items: center; gap: 14px;
 }
 .detail-block h3 .num {
-  width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--gold-light);
-  display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0;
+  width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--navy-3), var(--navy));
+  color: var(--gold-light); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(13,43,69,.25);
 }
-.detail-block .en { font-size: 11px; color: var(--gold); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 20px; }
-.detail-block ul li { font-size: 14px; color: var(--ink); padding: 7px 0; padding-left: 20px; position: relative; border-bottom: 1px dashed var(--line); }
+.detail-block .en { font-size: 11px; color: var(--gold); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 22px; }
+.detail-block ul li { font-size: 14px; color: var(--ink); padding: 8px 0; padding-left: 22px; position: relative; border-bottom: 1px dashed var(--line); }
 .detail-block ul li:last-child { border-bottom: 0; }
-.detail-block ul li::before { content: "◆"; position: absolute; left: 0; font-size: 8px; color: var(--gold); top: 12px; }
+.detail-block ul li::before { content: "◆"; position: absolute; left: 0; font-size: 8px; color: var(--gold); top: 13px; }
 .detail-block ul li small { color: var(--muted); font-size: 12px; }
 .detail-wide { grid-column: 1 / -1; }
 
 /* ============ 优势 ============ */
-.adv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.adv-item { padding: 36px 30px; border-radius: 10px; background: var(--white); border: 1px solid var(--line); text-align: center; transition: all .3s; }
-.adv-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.adv-item .icon { font-size: 40px; margin-bottom: 16px; }
-.adv-item h3 { font-family: var(--serif); font-size: 19px; color: var(--navy); margin-bottom: 10px; }
-.adv-item p { font-size: 13px; color: var(--muted); }
+.adv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.adv-item {
+  padding: 40px 32px; border-radius: 14px; background: var(--white); border: 0;
+  box-shadow: 0 2px 16px rgba(13,43,69,.05); text-align: center; transition: all .35s;
+}
+.adv-item:hover { transform: translateY(-6px); box-shadow: 0 18px 46px rgba(13,43,69,.12); }
+.adv-item .icon {
+  font-size: 42px; margin-bottom: 18px; display: inline-flex; align-items: center; justify-content: center;
+  width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(135deg, rgba(184,147,90,.14), rgba(184,147,90,.05));
+}
+.adv-item h3 { font-family: var(--serif); font-size: 20px; color: var(--navy); margin-bottom: 12px; }
+.adv-item p { font-size: 13px; color: var(--muted); line-height: 1.9; }
 
 /* ============ CTA ============ */
 .cta { background: var(--navy); position: relative; overflow: hidden; }
@@ -248,6 +306,14 @@ section { padding: 96px 0; }
 .footer-links a:hover { color: var(--gold-light); }
 .footer-bottom { padding-top: 26px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: rgba(255,255,255,.5); }
 
+/* ============ 滚动渐入动画 ============ */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
 /* ============ 响应式 ============ */
 @media (max-width: 960px) {
   .nav-links {
@@ -260,6 +326,7 @@ section { padding: 96px 0; }
   .nav-toggle { display: flex; }
   .hero h1 { font-size: 34px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: 1fr; }
   .trust-inner { grid-template-columns: repeat(2, 1fr); }
   .detail-grid { grid-template-columns: 1fr; }
   .adv-grid { grid-template-columns: 1fr; }
@@ -276,6 +343,19 @@ section { padding: 96px 0; }
   .hero h1 { font-size: 28px; }
   .section-head h2 { font-size: 26px; }
 }
+
+/* ===== 语言切换器 ===== */
+.lang-switch { display: flex; gap: 4px; margin-left: 10px; align-items: center; }
+.lang-btn {
+  background: none; border: 1px solid var(--line); color: var(--muted);
+  font-size: 12px; padding: 5px 10px; border-radius: 4px; cursor: pointer;
+  font-family: var(--sans); transition: all .2s; line-height: 1.4;
+}
+.lang-btn:hover { border-color: var(--gold); color: var(--navy); }
+.lang-btn.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+@media (max-width: 960px) {
+  .lang-switch { margin-left: 0; margin-top: 12px; flex-wrap: wrap; }
+}
 </style>
 </head>
 <body>
@@ -287,18 +367,25 @@ section { padding: 96px 0; }
       <span class="brand-mark">瀚</span>
       <span>
         <span class="brand-name">瀚加日财务咨询</span>
-        <span class="brand-sub">HANIL FINANCIAL CONSULTING</span>
+        <span class="brand-sub">HANJIARI FINANCIAL CONSULTING</span>
       </span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#about">公司简介</a>
-      <a href="#services">业务内容</a>
-      <a href="#detail">服务详解</a>
-      <a href="#news">最新政策</a>
-      <a href="#member">会员注册</a>
-      <a href="#contact">联系我们</a>
-      <a href="#contact" class="nav-cta">在线咨询</a>
-    </div>
+      <a href="#about"><span data-i18n="nav_about">公司简介</span></a>
+      <a href="#services"><span data-i18n="nav_services">业务内容</span></a>
+      <a href="#detail"><span data-i18n="nav_detail">服务详解</span></a>
+      <a href="#news"><span data-i18n="nav_news">最新政策</span></a>
+      <a href="#member"><span data-i18n="nav_member">会员注册</span></a>
+      <a href="#contact"><span data-i18n="nav_contact">联系我们</span></a>
+      <a href="#contact" class="nav-cta"><span data-i18n="nav_cta">在线咨询</span></a>
+    
+      <div class="lang-switch" aria-label="Language">
+        <button class="lang-btn active" data-lang="zh" onclick="switchLang('zh')">中</button>
+        <button class="lang-btn" data-lang="ja" onclick="switchLang('ja')">日</button>
+        <button class="lang-btn" data-lang="ko" onclick="switchLang('ko')">한</button>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+</div>
     <button class="nav-toggle" id="navToggle" aria-label="菜单">
       <span></span><span></span><span></span>
     </button>
@@ -310,25 +397,25 @@ section { padding: 96px 0; }
   <div class="hero-pattern"></div>
   <div class="hero-inner">
     <span class="hero-tag">중국 설립·회계·세무·감사 컨설팅</span>
-    <h1>中国的设立、会计、税务、审计咨询<br>交给值得信赖的<span class="gold">瀚加日</span></h1>
-    <p class="hero-sub">深耕中国市场二十年、日本市场四十年的瀚加日集团，以专业、迅速、诚信的综合实力，为外资企业进入中国与中国企业走向海外提供全方位财税服务。</p>
+    <h1><span data-i18n="hero_h1">中国的设立、会计、税务、审计咨询<br>交给值得信赖的<span class="gold">瀚加日</span></span></h1>
+    <p class="hero-sub"><span data-i18n="hero_sub">深耕中国市场二十年、日本市场四十年的瀚加日集团，以专业、迅速、诚信的综合实力，为外资企业进入中国与中国企业走向海外提供全方位财税服务。</span></p>
     <div class="hero-meta">
       <div class="hero-meta-item">
         <span class="ico">✆</span>
-        <span><b>86-21-6083-9925</b><small>咨询热线</small></span>
+        <span><b>+86 156-1888-5580</b><small><span data-i18n="hero_ph_lbl">咨询热线</span></small></span>
       </div>
       <div class="hero-meta-item">
         <span class="ico">✉</span>
-        <span><b>hanil_office@hanil.sh.cn</b><small>业务邮箱</small></span>
+        <span><b>jinrishan@hanjiari.com</b><small><span data-i18n="hero_mail_lbl">业务邮箱</span></small></span>
       </div>
       <div class="hero-meta-item">
         <span class="ico">◈</span>
-        <span><b>上海市徐汇区</b><small>上海总部</small></span>
+        <span><b>上海市徐汇区</b><small><span data-i18n="hero_addr_lbl">上海总部</span></small></span>
       </div>
     </div>
     <div class="hero-btns">
-      <a href="#services" class="btn btn-gold">了解业务内容</a>
-      <a href="#contact" class="btn btn-outline">预约咨询</a>
+      <a href="#services" class="btn btn-gold"><span data-i18n="btn_services">了解业务内容</span></a>
+      <a href="#contact" class="btn btn-outline"><span data-i18n="btn_contact">预约咨询</span></a>
     </div>
   </div>
 </header>
@@ -336,10 +423,10 @@ section { padding: 96px 0; }
 <!-- ===== 信任指标 ===== -->
 <div class="trust-strip">
   <div class="container trust-inner">
-    <div class="trust-item"><div class="num">20<span>+</span></div><div class="label">中国市场深耕年限</div></div>
-    <div class="trust-item"><div class="num">40<span>+</span></div><div class="label">日本市场深耕年限</div></div>
-    <div class="trust-item"><div class="num">5000<span>+</span></div><div class="label">服务企业客户</div></div>
-    <div class="trust-item"><div class="num">CPA</div><div class="label">资深注册会计师团队</div></div>
+    <div class="trust-item reveal"><div class="num">20<span>+</span></div><div class="label"><span data-i18n="trust1">中国市场深耕年限</span></div></div>
+    <div class="trust-item reveal"><div class="num">40<span>+</span></div><div class="label"><span data-i18n="trust2">日本市场深耕年限</span></div></div>
+    <div class="trust-item reveal"><div class="num">5000<span>+</span></div><div class="label"><span data-i18n="trust3">服务企业客户</span></div></div>
+    <div class="trust-item reveal"><div class="num">CICPA</div><div class="label"><span data-i18n="trust4">中国注册会计师领衔</span></div></div>
   </div>
 </div>
 
@@ -348,53 +435,81 @@ section { padding: 96px 0; }
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">About Us</span>
-      <h2>瀚加日财务咨询</h2>
+      <h2><span data-i18n="about_h2">瀚加日财务咨询</span></h2>
       <span class="jp">상하이한일세무회계컨설팅 ／ 瀚加日財務コンサルティング（上海）有限公司</span>
-      <p>上海瀚加日财务咨询有限公司，隶属于深耕财税领域数十年的瀚加日集团。我们专注于为企业提供设立登记、代理记账、税务申报、审计鉴证、投资日本等一站式服务，帮助企业专注经营、无忧财税。</p>
+      <p><span data-i18n="about_p">上海瀚加日财务咨询有限公司（상하이한일세무회계컨설팅）是一家由中韩两国财税专家组成的专业咨询机构，中国注册会计师（CICPA）领衔，团队具备中日韩三语能力及 SAP ERP 实务经验。我们专注于为在华韩资、日资企业及中国企业提供设立登记、代理记账、税务申报、审计鉴证、M&A 尽职调查、清算注销及 IFRS/K-IFRS 合并报表等一站式服务，同时与韩国 케이제이파이낸스컨설팅(주)（KJ Finance Consulting）深度协同，为企业跨中韩两地发展保驾护航。</span></p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">李</div>
+        <div class="team-info">
+          <h3>李文实 <small>이문실</small></h3>
+          <div class="team-title"><span data-i18n="team1_title">中国注册会计师（CICPA）· 创始人</span></div>
+          <ul>
+            <li><span data-i18n="team1_l1">中国注册会计师（中国注册会计师）资格</span></li>
+            <li><span data-i18n="team1_l2">精通韩国语、日语</span></li>
+            <li><span data-i18n="team1_l3">大连 Dell（日本财务业务）工作经历</span></li>
+            <li><span data-i18n="team1_l4">上海立信会计师事务所（BDO 成员所）工作经历</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">金</div>
+        <div class="team-info">
+          <h3>金一善 <small>김일선</small></h3>
+          <div class="team-title"><span data-i18n="team2_title">SAP ERP 专家 · 合伙人</span></div>
+          <ul>
+            <li><span data-i18n="team2_l1">SAP ERP（MM 模块）实务专家</span></li>
+            <li>精通韩国语、日语</li>
+            <li><span data-i18n="team2_l3">福冈系统开发、系统营业经验（NTT DATA）</span></li>
+            <li><span data-i18n="team2_l4">松下电器机电（中国）有限公司产品营业经历</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="services-grid" id="services">
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="no">01 / REGISTRATION</div>
-        <h3>设立登记</h3>
+        <h3><span data-i18n="svc1_h">设立登记</span></h3>
         <div class="en">Company Registration</div>
-        <p>以诚实守信为理念，凭借多年经验让公司设立、登记变更不再繁琐，一站式手续更简单、安心、高效。</p>
+        <p><span data-i18n="svc1_p">以诚实守信为理念，凭借多年经验让公司设立、登记变更不再繁琐，一站式手续更简单、安心、高效。</span></p>
         <ul>
-          <li>外商独资 / 合资公司设立</li>
-          <li>代表处设立与延期</li>
-          <li>分支机构设立</li>
+          <li><span data-i18n="svc1_l1">外商独资 / 合资公司设立</span></li>
+          <li><span data-i18n="svc1_l2">代表处设立与延期</span></li>
+          <li><span data-i18n="svc1_l3">分支机构设立</span></li>
         </ul>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="no">02 / ACCOUNTING</div>
-        <h3>会计服务</h3>
+        <h3><span data-i18n="svc2_h">会计服务</span></h3>
         <div class="en">Accounting</div>
-        <p>资深会计专家深入了解客户业务，提供最适合企业的服务，让您无需担心财务数字，专注业务开拓。</p>
+        <p><span data-i18n="svc2_p">资深会计专家深入了解客户业务，提供最适合企业的服务，让您无需担心财务数字，专注业务开拓。</span></p>
         <ul>
-          <li>代理记账</li>
-          <li>月度 / 季度税务申报</li>
-          <li>出口退税</li>
+          <li><span data-i18n="svc2_l1">代理记账</span></li>
+          <li><span data-i18n="svc2_l2">月度 / 季度税务申报</span></li>
+          <li><span data-i18n="svc2_l3">出口退税</span></li>
         </ul>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="no">03 / TAX CONSULTING</div>
-        <h3>财税咨询</h3>
+        <h3><span data-i18n="svc3_h">财税咨询</span></h3>
         <div class="en">Financial Tax Consulting</div>
-        <p>大数据、智能化等新技术不断革新应用，财务管理已进入 AI 财务时代。我们从报表与申报数据中发现问题，支持企业持续健康发展。</p>
+        <p><span data-i18n="svc3_p">大数据、智能化等新技术不断革新应用，财务管理已进入 AI 财务时代。我们从报表与申报数据中发现问题，支持企业持续健康发展。</span></p>
         <ul>
-          <li>财务健康诊断</li>
-          <li>转移定价应对</li>
-          <li>财务尽职调查（DD）</li>
+          <li><span data-i18n="svc3_l1">财务健康诊断</span></li>
+          <li><span data-i18n="svc3_l2">转移定价应对</span></li>
+          <li><span data-i18n="svc3_l3">财务尽职调查（DD）</span></li>
         </ul>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="no">04 / AUDIT</div>
-        <h3>审计服务</h3>
+        <h3><span data-i18n="svc4_h">审计服务</span></h3>
         <div class="en">Audit</div>
-        <p>一流的外部审计流程与年度审计及独立性并重，不仅关注财务信息，更考虑企业运营中的潜在风险。</p>
+        <p><span data-i18n="svc4_p">一流的外部审计流程与年度审计及独立性并重，不仅关注财务信息，更考虑企业运营中的潜在风险。</span></p>
         <ul>
-          <li>年度法定审计支援</li>
-          <li>巡回监查</li>
-          <li>J-SOX 内部控制指导</li>
+          <li><span data-i18n="svc4_l1">年度法定审计支援</span></li>
+          <li><span data-i18n="svc4_l2">巡回监查</span></li>
+          <li><span data-i18n="svc4_l3">J-SOX 内部控制指导</span></li>
         </ul>
       </div>
     </div>
@@ -406,98 +521,98 @@ section { padding: 96px 0; }
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Our Services</span>
-      <h2>业务内容详解</h2>
+      <h2><span data-i18n="detail_h2">业务内容详解</span></h2>
       <span class="jp">業務内容</span>
-      <p>从企业设立到日常运营，再到海外拓展，瀚加日为您提供全生命周期的财税支持。</p>
+      <p><span data-i18n="detail_p">从企业设立到日常运营，再到海外拓展，瀚加日为您提供全生命周期的财税支持。</span></p>
     </div>
     <div class="detail-grid">
-      <div class="detail-block">
-        <h3><span class="num">01</span>企业设立、登记注册</h3>
+      <div class="detail-block reveal">
+        <h3><span class="num">01</span><span data-i18n="dt1_h">企业设立、登记注册</span></h3>
         <div class="en">Company Establishment & Registration</div>
         <ul>
-          <li>选址协助、经营场所确定（租赁合同签订及后续租赁备案陪同）</li>
-          <li>设立手续及设立前后注意事项咨询服务</li>
-          <li>外资公司设立（外商独资、合资、自然人独资、中外合资等）</li>
-          <li>外国企业常驻代表机构设立、登记手续延期</li>
-          <li>境外子公司、分公司设立</li>
+          <li><span data-i18n="dt1_l1">选址协助、经营场所确定（租赁合同签订及后续租赁备案陪同）</span></li>
+          <li><span data-i18n="dt1_l2">设立手续及设立前后注意事项咨询服务</span></li>
+          <li><span data-i18n="dt1_l3">外资公司设立（外商独资、合资、自然人独资、中外合资等）</span></li>
+          <li><span data-i18n="dt1_l4">外国企业常驻代表机构设立、登记手续延期</span></li>
+          <li><span data-i18n="dt1_l5">境外子公司、分公司设立</span></li>
         </ul>
       </div>
-      <div class="detail-block">
-        <h3><span class="num">02</span>变更登记、机构重组</h3>
+      <div class="detail-block reveal">
+        <h3><span class="num">02</span><span data-i18n="dt2_h">变更登记、机构重组</span></h3>
         <div class="en">Change Registration & Reorganization</div>
         <ul>
-          <li>收购、合并、分立手续及财税法律咨询</li>
-          <li>清算注销全流程处理及咨询（前期方案、人事法务、税务风险提示至后期剩余资金汇出）</li>
-          <li>代表处转为法人公司的无缝迁移</li>
-          <li>股权转让手续代办、增资减资手续</li>
-          <li>各种登记变更（名称、经营范围、住所等）</li>
+          <li><span data-i18n="dt2_l1">收购、合并、分立手续及财税法律咨询</span></li>
+          <li><span data-i18n="dt2_l2">清算注销全流程处理及咨询（前期方案、人事法务、税务风险提示至后期剩余资金汇出）</span></li>
+          <li><span data-i18n="dt2_l3">代表处转为法人公司的无缝迁移</span></li>
+          <li><span data-i18n="dt2_l4">股权转让手续代办、增资减资手续</span></li>
+          <li><span data-i18n="dt2_l5">各种登记变更（名称、经营范围、住所等）</span></li>
         </ul>
       </div>
-      <div class="detail-block">
-        <h3><span class="num">03</span>投资日本</h3>
+      <div class="detail-block reveal">
+        <h3><span class="num">03</span><span data-i18n="dt3_h">投资日本</span></h3>
         <div class="en">Investment in Japan</div>
         <ul>
-          <li>对日投资咨询、子公司设立手续协助</li>
-          <li>日本子公司设立后的一站式业务服务</li>
-          <li>日本投资流程全程指导</li>
-          <li>海外母公司相关业务支援</li>
+          <li><span data-i18n="dt3_l1">对日投资咨询、子公司设立手续协助</span></li>
+          <li><span data-i18n="dt3_l2">日本子公司设立后的一站式业务服务</span></li>
+          <li><span data-i18n="dt3_l3">日本投资流程全程指导</span></li>
+          <li><span data-i18n="dt3_l4">海外母公司相关业务支援</span></li>
         </ul>
       </div>
-      <div class="detail-block">
-        <h3><span class="num">04</span>人事 & 劳务 & 外国人业务</h3>
+      <div class="detail-block reveal">
+        <h3><span class="num">04</span><span data-i18n="dt4_h">人事 & 劳务 & 外国人业务</span></h3>
         <div class="en">HR & Labor & Foreigner Services</div>
         <ul>
-          <li>外国人工作许可证、居留许可等业务代办（A类 / B类）</li>
-          <li>工资及个人所得税计算、就业规则制定协助</li>
-          <li>社保及公积金账户开设、缴纳、补缴、转移</li>
-          <li>短期派遣服务、人才招聘协助</li>
-          <li>外国人邀请函、来华工作许可、居留许可全程代办</li>
+          <li><span data-i18n="dt4_l1">外国人工作许可证、居留许可等业务代办（A类 / B类）</span></li>
+          <li><span data-i18n="dt4_l2">工资及个人所得税计算、就业规则制定协助</span></li>
+          <li><span data-i18n="dt4_l3">社保及公积金账户开设、缴纳、补缴、转移</span></li>
+          <li><span data-i18n="dt4_l4">短期派遣服务、人才招聘协助</span></li>
+          <li><span data-i18n="dt4_l5">外国人邀请函、来华工作许可、居留许可全程代办</span></li>
         </ul>
       </div>
-      <div class="detail-block">
-        <h3><span class="num">05</span>特别财税专业服务</h3>
+      <div class="detail-block reveal">
+        <h3><span class="num">05</span><span data-i18n="dt5_h">特别财税专业服务</span></h3>
         <div class="en">Special Financial & Tax Services</div>
         <ul>
-          <li>财务健康诊断报告</li>
-          <li>财务尽职调查（DD）</li>
-          <li>转移定价税务风险调查及应对、同期资料编制</li>
-          <li>企业价值评估</li>
-          <li>新会计准则导入顾问、财务管理制度编制</li>
-          <li>企业经营层财税培训、ERP 导入支援</li>
+          <li><span data-i18n="dt5_l1">财务健康诊断报告</span></li>
+          <li><span data-i18n="dt5_l2">财务尽职调查（DD）</span></li>
+          <li><span data-i18n="dt5_l3">转移定价税务风险调查及应对、同期资料编制</span></li>
+          <li><span data-i18n="dt5_l4">企业价值评估</span></li>
+          <li><span data-i18n="dt5_l5">新会计准则导入顾问、财务管理制度编制</span></li>
+          <li><span data-i18n="dt5_l6">企业经营层财税培训、ERP 导入支援</span></li>
         </ul>
       </div>
-      <div class="detail-block">
-        <h3><span class="num">06</span>法务支援</h3>
+      <div class="detail-block reveal">
+        <h3><span class="num">06</span><span data-i18n="dt6_h">法务支援</span></h3>
         <div class="en">Legal Support</div>
         <ul>
-          <li>劳动合同等相关咨询服务</li>
-          <li>经营合同等法务支援业务</li>
-          <li>企业社会信用调查报告编制</li>
-          <li>长期应收账款回收支援</li>
+          <li><span data-i18n="dt6_l1">劳动合同等相关咨询服务</span></li>
+          <li><span data-i18n="dt6_l2">经营合同等法务支援业务</span></li>
+          <li><span data-i18n="dt6_l3">企业社会信用调查报告编制</span></li>
+          <li><span data-i18n="dt6_l4">长期应收账款回收支援</span></li>
         </ul>
       </div>
-      <div class="detail-block detail-wide">
-        <h3><span class="num">07</span>月间服务 & 年间服务</h3>
+      <div class="detail-block reveal detail-wide">
+        <h3><span class="num">07</span><span data-i18n="dt7_h">月间服务 & 年间服务</span></h3>
         <div class="en">Monthly & Annual Services</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px;">
           <div>
-            <p style="font-size:15px;color:var(--navy);font-weight:600;margin-bottom:10px;">月间服务</p>
+            <p style="font-size:15px;color:var(--navy);font-weight:600;margin-bottom:10px;"><span data-i18n="dt7_c1_h">月间服务</span></p>
             <ul>
-              <li>代理记账、月度财务报告编制</li>
-              <li>税务申报（增值税、个税、企业所得税、印花税等）</li>
-              <li>月度统计报表编制申报、出口退税申报</li>
-              <li>外籍人士个税代理申报、月度巡回监查</li>
-              <li>财务分析及财务指标分析、月度审查报告（财务税务风险提示）</li>
+              <li><span data-i18n="dt7_l1">代理记账、月度财务报告编制</span></li>
+              <li><span data-i18n="dt7_l2">税务申报（增值税、个税、企业所得税、印花税等）</span></li>
+              <li><span data-i18n="dt7_l3">月度统计报表编制申报、出口退税申报</span></li>
+              <li><span data-i18n="dt7_l4">外籍人士个税代理申报、月度巡回监查</span></li>
+              <li><span data-i18n="dt7_l5">财务分析及财务指标分析、月度审查报告（财务税务风险提示）</span></li>
             </ul>
           </div>
           <div>
-            <p style="font-size:15px;color:var(--navy);font-weight:600;margin-bottom:10px;">年间服务</p>
+            <p style="font-size:15px;color:var(--navy);font-weight:600;margin-bottom:10px;"><span data-i18n="dt7_c2_h">年间服务</span></p>
             <ul>
-              <li>法定审计支援服务、年度决算辅助业务</li>
-              <li>年度个税综合所得汇算清缴</li>
-              <li>企业所得税汇算清缴申报及指导</li>
-              <li>年度工商公示、全国税收调查表申报</li>
-              <li>合并报表编制支援、IFRS 报表转换</li>
+              <li><span data-i18n="dt7_l6">法定审计支援服务、年度决算辅助业务</span></li>
+              <li><span data-i18n="dt7_l7">年度个税综合所得汇算清缴</span></li>
+              <li><span data-i18n="dt7_l8">企业所得税汇算清缴申报及指导</span></li>
+              <li><span data-i18n="dt7_l9">年度工商公示、全国税收调查表申报</span></li>
+              <li><span data-i18n="dt7_l10">合并报表编制支援、IFRS 报表转换</span></li>
             </ul>
           </div>
         </div>
@@ -511,16 +626,16 @@ section { padding: 96px 0; }
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Our Strengths</span>
-      <h2>选择瀚加日的五大理由</h2>
+      <h2><span data-i18n="adv_h2">选择瀚加日的五大理由</span></h2>
       <span class="jp">瀚加日を選ぶ5つの理由</span>
     </div>
     <div class="adv-grid">
-      <div class="adv-item"><div class="icon">🏛</div><h3>专业可靠</h3><p>资深 CPA 团队，二十年中国财税实战经验，专业对应外资企业进入中国与中国企业走向海外。</p></div>
-      <div class="adv-item"><div class="icon">⚡</div><h3>迅速高效</h3><p>快速高效的响应机制，及时准确的完成会计税务事项的外包服务，为企业解决后顾之忧。</p></div>
-      <div class="adv-item"><div class="icon">🤝</div><h3>诚信信赖</h3><p>诚实守信的经营理念，严守信用，与客户建立长期信赖的合作关系。</p></div>
-      <div class="adv-item"><div class="icon">🌏</div><h3>中日双语</h3><p>中日双语团队，无缝对接日本母公司与中国子公司，消除沟通障碍。</p></div>
-      <div class="adv-item"><div class="icon">🧭</div><h3>综合实力</h3><p>从设立到注销、从财务到法务、从人到业务，全生命周期一站式综合服务。</p></div>
-      <div class="adv-item"><div class="icon">📊</div><h3>巡监机制</h3><p>经营监查、合规监查、内部管控监查并提供改善方案，定期报告与改善落实跟进。</p></div>
+      <div class="adv-item reveal"><div class="icon">🏛</div><h3><span data-i18n="adv1_h">专业可靠</span></h3><p><span data-i18n="adv1_p">资深 CPA 团队，二十年中国财税实战经验，专业对应外资企业进入中国与中国企业走向海外。</span></p></div>
+      <div class="adv-item reveal"><div class="icon">⚡</div><h3><span data-i18n="adv2_h">迅速高效</span></h3><p><span data-i18n="adv2_p">快速高效的响应机制，及时准确的完成会计税务事项的外包服务，为企业解决后顾之忧。</span></p></div>
+      <div class="adv-item reveal"><div class="icon">🤝</div><h3><span data-i18n="adv3_h">诚信信赖</span></h3><p><span data-i18n="adv3_p">诚实守信的经营理念，严守信用，与客户建立长期信赖的合作关系。</span></p></div>
+      <div class="adv-item reveal"><div class="icon">🌏</div><h3><span data-i18n="adv4_h">中日双语</span></h3><p><span data-i18n="adv4_p">中日双语团队，无缝对接日本母公司与中国子公司，消除沟通障碍。</span></p></div>
+      <div class="adv-item reveal"><div class="icon">🧭</div><h3><span data-i18n="adv5_h">综合实力</span></h3><p><span data-i18n="adv5_p">从设立到注销、从财务到法务、从人到业务，全生命周期一站式综合服务。</span></p></div>
+      <div class="adv-item reveal"><div class="icon">📊</div><h3><span data-i18n="adv6_h">巡监机制</span></h3><p><span data-i18n="adv6_p">经营监查、合规监查、内部管控监查并提供改善方案，定期报告与改善落实跟进。</span></p></div>
     </div>
   </div>
 </section>
@@ -528,11 +643,11 @@ section { padding: 96px 0; }
 <!-- ===== CTA ===== -->
 <section class="cta">
   <div class="container cta-inner">
-    <h2>为您的企业做一次财务健康诊断吧</h2>
-    <p>经验丰富的 CPA 内审团队为您的企业进行财务健康诊断。现在邮件预约，有机会获得一次免费诊断咨询服务！</p>
+    <h2><span data-i18n="cta_h2">为您的企业做一次财务健康诊断吧</span></h2>
+    <p><span data-i18n="cta_p">经验丰富的 CPA 内审团队为您的企业进行财务健康诊断。现在邮件预约，有机会获得一次免费诊断咨询服务！</span></p>
     <div class="cta-btns">
-      <a href="mailto:hanil_office@hanil.sh.cn" class="btn btn-gold">✉ 邮件预约</a>
-      <a href="#contact" class="btn btn-outline">了解详情</a>
+      <a href="mailto:jinrishan@hanjiari.com" class="btn btn-gold"><span data-i18n="cta_btn1">✉ 邮件预约</span></a>
+      <a href="#contact" class="btn btn-outline"><span data-i18n="cta_btn2">了解详情</span></a>
     </div>
   </div>
 </section>
@@ -542,35 +657,35 @@ section { padding: 96px 0; }
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">News & Policy</span>
-      <h2>最新政策与瀚加日速报</h2>
+      <h2><span data-i18n="news_h2">最新政策与瀚加日速报</span></h2>
       <span class="jp">最新政策と瀚加日速報&解読</span>
-      <p>第一时间传递最新财税政策动态与专业解读。</p>
+      <p><span data-i18n="news_p">第一时间传递最新财税政策动态与专业解读。</span></p>
     </div>
     <div class="news-grid">
-      <a href="#" class="news-card">
-        <div class="news-thumb"><span class="tag">政策解读</span>📰</div>
+      <a href="#" class="news-card reveal">
+        <div class="news-thumb"><span class="tag"><span data-i18n="news_tag1">政策解读</span></span>📰</div>
         <div class="news-body">
           <span class="news-date">2026.08.15</span>
-          <h3>增值税法实施后企业税务合规要点解析</h3>
-          <p>新增值税法实施后，企业在发票管理、进项抵扣、申报流程方面有哪些合规要点？瀚加日为您逐一解读。</p>
-          <span class="news-more">了解详情 →</span>
+          <h3><span data-i18n="news1_h">增值税法实施后企业税务合规要点解析</span></h3>
+          <p><span data-i18n="news1_p">新增值税法实施后，企业在发票管理、进项抵扣、申报流程方面有哪些合规要点？瀚加日为您逐一解读。</span></p>
+          <span class="news-more"><span data-i18n="news_more">了解详情 →</span></span>
         </div>
       </a>
-      <a href="#" class="news-card">
-        <div class="news-thumb"><span class="tag">瀚加日速报</span>📈</div>
+      <a href="#" class="news-card reveal">
+        <div class="news-thumb"><span class="tag"><span data-i18n="news_tag2">瀚加日速报</span></span>📈</div>
         <div class="news-body">
           <span class="news-date">2026.08.08</span>
-          <h3>2026年度企业所得税汇算清缴注意事项</h3>
-          <p>年度汇算清缴季来临，收入确认、成本扣除、优惠适用等关键点全面梳理，助企业顺利完成申报。</p>
+          <h3><span data-i18n="news2_h">2026年度企业所得税汇算清缴注意事项</span></h3>
+          <p><span data-i18n="news2_p">年度汇算清缴季来临，收入确认、成本扣除、优惠适用等关键点全面梳理，助企业顺利完成申报。</span></p>
           <span class="news-more">了解详情 →</span>
         </div>
       </a>
-      <a href="#" class="news-card">
-        <div class="news-thumb"><span class="tag">行业洞察</span>🌏</div>
+      <a href="#" class="news-card reveal">
+        <div class="news-thumb"><span class="tag"><span data-i18n="news_tag3">行业洞察</span></span>🌏</div>
         <div class="news-body">
           <span class="news-date">2026.07.30</span>
-          <h3>对日投资热潮下的跨境财税规划</h3>
-          <p>随着中日经贸往来加深，中国企业赴日投资如何做好跨境财税规划？本文为您提供实用建议。</p>
+          <h3><span data-i18n="news3_h">对日投资热潮下的跨境财税规划</span></h3>
+          <p><span data-i18n="news3_p">随着中日经贸往来加深，中国企业赴日投资如何做好跨境财税规划？本文为您提供实用建议。</span></p>
           <span class="news-more">了解详情 →</span>
         </div>
       </a>
@@ -583,26 +698,26 @@ section { padding: 96px 0; }
   <div class="container member-wrap">
     <div class="member-info">
       <span class="eyebrow" style="font-size:12px;letter-spacing:.35em;color:var(--gold);">Member Registration</span>
-      <h2>注册会员，获取免费咨询</h2>
-      <p>注册成为瀚加日会员，定期获取最新税务信息、瀚加日速报、瀚加日解读等精彩内容！已有 <strong>5287</strong> 人注册成功。</p>
-      <div class="count">5287 <small>人已注册</small></div>
-      <p style="margin-top:20px;font-size:14px;">企业设立、变更登记、注销、投资日本等案例分享，尽在会员中心。</p>
+      <h2><span data-i18n="member_h2">注册会员，获取免费咨询</span></h2>
+      <p><span data-i18n="member_p1">注册成为瀚加日会员，定期获取最新税务信息、瀚加日速报、瀚加日解读等精彩内容！已有</span> <strong>5287</strong> 人注册成功。</p>
+      <div class="count">5287 <small><span data-i18n="member_cnt">人已注册</span></small></div>
+      <p style="margin-top:20px;font-size:14px;"><span data-i18n="member_p2">企业设立、变更登记、注销、投资日本等案例分享，尽在会员中心。</span></p>
     </div>
     <form class="member-form" id="memberForm">
       <div class="form-row">
-        <div class="form-group"><label>姓名 <span class="req">*</span></label><input type="text" name="name" required placeholder="请输入姓名"></div>
-        <div class="form-group"><label>公司 <span class="req">*</span></label><input type="text" name="company" required placeholder="请输入公司名称"></div>
+        <div class="form-group"><label><span data-i18n="f_name">姓名</span> <span class="req">*</span></label><input type="text" name="name" required data-i18n-ph="f_name_ph" placeholder="请输入姓名"></div>
+        <div class="form-group"><label><span data-i18n="f_company">公司</span> <span class="req">*</span></label><input type="text" name="company" required data-i18n-ph="f_company_ph" placeholder="请输入公司名称"></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>地址 <span class="req">*</span></label><input type="text" name="address" required placeholder="请输入地址"></div>
-        <div class="form-group"><label>电话 <span class="req">*</span></label><input type="tel" name="phone" required placeholder="请输入联系电话"></div>
+        <div class="form-group"><label><span data-i18n="f_addr">地址</span> <span class="req">*</span></label><input type="text" name="address" required data-i18n-ph="f_addr_ph" placeholder="请输入地址"></div>
+        <div class="form-group"><label><span data-i18n="f_phone">电话</span> <span class="req">*</span></label><input type="tel" name="phone" required data-i18n-ph="f_phone_ph" placeholder="请输入联系电话"></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>邮箱 <span class="req">*</span></label><input type="email" name="email" required placeholder="请输入邮箱"></div>
-        <div class="form-group"><label>设置密码 <span class="req">*</span></label><input type="password" name="password" required placeholder="请设置密码"></div>
+        <div class="form-group"><label><span data-i18n="f_email">邮箱</span> <span class="req">*</span></label><input type="email" name="email" required data-i18n-ph="f_email_ph" placeholder="请输入邮箱"></div>
+        <div class="form-group"><label><span data-i18n="f_pwd">设置密码</span> <span class="req">*</span></label><input type="password" name="password" required data-i18n-ph="f_pwd_ph" placeholder="请设置密码"></div>
       </div>
-      <div class="form-group full"><label>验证码 <span class="req">*</span></label><input type="text" name="captcha" required placeholder="请输入验证码"></div>
-      <button type="submit" class="form-submit">立即注册</button>
+      <div class="form-group full"><label><span data-i18n="f_captcha">验证码</span> <span class="req">*</span></label><input type="text" name="captcha" required data-i18n-ph="f_captcha_ph" placeholder="请输入验证码"></div>
+      <button type="submit" class="form-submit"><span data-i18n="f_submit">立即注册</span></button>
       <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:14px;" id="formMsg"></p>
     </form>
   </div>
@@ -615,24 +730,24 @@ section { padding: 96px 0; }
       <span class="eyebrow">Contact</span>
       <h2>联系我们</h2>
       <span class="jp">お問い合わせ</span>
-      <p>如有任何疑问，欢迎来电或留言，我们会认真对待每一个问题。</p>
+      <p><span data-i18n="contact_p">如有任何疑问，欢迎来电或留言，我们会认真对待每一个问题。</span></p>
     </div>
     <div class="contact-grid">
-      <div class="contact-card">
-        <h3>上海瀚加日财务咨询有限公司</h3>
-        <div class="en">HANIL FINANCIAL CONSULTING (SHANGHAI) CO., LTD.</div>
-        <div class="contact-line"><span class="k">地址</span><span>上海市徐汇区宜山路425号410室</span></div>
-        <div class="contact-line"><span class="k">邮箱</span><a href="mailto:hanil_office@hanil.sh.cn">hanil_office@hanil.sh.cn</a></div>
-        <div class="contact-line"><span class="k">电话</span><a href="tel:862160839925">86-21-6083-9925</a></div>
-        <div class="contact-line"><span class="k">官网</span><a href="#" target="_blank">www.rishan.com.cn</a></div>
+      <div class="contact-card reveal">
+        <h3><span data-i18n="contact_c1_h">上海瀚加日财务咨询有限公司</span></h3>
+        <div class="en">HANJIARI FINANCIAL CONSULTING (SHANGHAI) CO., LTD.</div>
+        <div class="contact-line"><span class="k">地址</span><span>上海市松江区九亭大街473弄6号楼313室</span></div>
+        <div class="contact-line"><span class="k">邮箱</span><a href="mailto:jinrishan@hanjiari.com">jinrishan@hanjiari.com</a></div>
+        <div class="contact-line"><span class="k">电话</span><a href="tel:+8615618885580">+86 156-1888-5580</a></div>
+        <div class="contact-line"><span class="k"><span data-i18n="contact_web">官网</span></span><a href="https://www.hanjiari.com" target="_blank">www.hanjiari.com</a></div>
       </div>
-      <div class="contact-card">
-        <h3>日本总部</h3>
-        <div class="en">Japan Headquarters</div>
-        <div class="contact-line"><span class="k">地址</span><span>大阪市天王寺区石ケ辻町9-17-805</span></div>
-        <div class="contact-line"><span class="k">邮箱</span><a href="mailto:hanil_office@hanil.sh.cn">hanil_office@hanil.sh.cn</a></div>
-        <div class="contact-line"><span class="k">电话</span><a href="tel:0081667731041">0081-6-6773-1041</a></div>
-        <div class="contact-line"><span class="k">官网</span><a href="#" target="_blank">www.rishan-kaikei.com</a></div>
+      <div class="contact-card reveal">
+        <h3><span data-i18n="contact_c2_h">韩国关联公司</span></h3>
+        <div class="en">KJ Finance Consulting Co., Ltd. (Korea)</div>
+        <div class="contact-line"><span class="k">地址</span><span>케이제이파이낸스컨설팅(주) KJ Finance Consulting</span></div>
+        <div class="contact-line"><span class="k">邮箱</span><a href="mailto:jinrishan@hanjiari.com">jinrishan@hanjiari.com</a></div>
+        <div class="contact-line"><span class="k">电话</span><a href="tel:+821077915580">+82 10-7791-5580</a></div>
+        <div class="contact-line"><span class="k">官网</span><a href="https://www.hanjiari.com" target="_blank">www.hanjiari.com</a></div>
       </div>
     </div>
   </div>
@@ -644,11 +759,11 @@ section { padding: 96px 0; }
     <div class="footer-top">
       <div>
         <h4>上海瀚加日财务咨询有限公司</h4>
-        <p>HANIL FINANCIAL CONSULTING (SHANGHAI) CO., LTD.<br><br>
+        <p>HANJIARI FINANCIAL CONSULTING (SHANGHAI) CO., LTD.<br><br>
         中国的设立、会计、税务、审计咨询，交给值得信赖的瀚加日。深耕中国市场二十年、日本市场四十年，专业、迅速、诚信、综合。</p>
       </div>
       <div>
-        <h4>快捷导航</h4>
+        <h4><span data-i18n="foot_nav">快捷导航</span></h4>
         <ul class="footer-links">
           <li><a href="#about">公司简介</a></li>
           <li><a href="#services">业务内容</a></li>
@@ -658,29 +773,890 @@ section { padding: 96px 0; }
         </ul>
       </div>
       <div>
-        <h4>常用链接</h4>
+        <h4><span data-i18n="foot_links">常用链接</span></h4>
         <ul class="footer-links">
-          <li><a href="#" target="_blank">国家税务总局</a></li>
-          <li><a href="#" target="_blank">中国人民银行汇率</a></li>
-          <li><a href="#" target="_blank">上海市公安局</a></li>
-          <li><a href="#" target="_blank">上海市人力资源社会保障局</a></li>
-          <li><a href="#" target="_blank">上海日本商工会</a></li>
+          <li><a href="#" target="_blank"><span data-i18n="fl1">国家税务总局</span></a></li>
+          <li><a href="#" target="_blank"><span data-i18n="fl2">中国人民银行汇率</span></a></li>
+          <li><a href="#" target="_blank"><span data-i18n="fl3">上海市公安局</span></a></li>
+          <li><a href="#" target="_blank"><span data-i18n="fl4">上海市人力资源社会保障局</span></a></li>
+          <li><a href="#" target="_blank"><span data-i18n="fl5">上海日本商工会</span></a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>版权所有 © 2026 上海瀚加日财务咨询有限公司 官方网站</span>
-      <span>沪ICP备XXXXXXXX号-1 · 技术支持：HANIL TECH</span>
+      <span><span data-i18n="foot_copy">版权所有 © 2026 上海瀚加日财务咨询有限公司 官方网站</span></span>
+      <span>沪ICP备XXXXXXXX号-1 · 技术支持：HANJIARI TECH</span>
     </div>
   </div>
 </footer>
 
 <script>
 // 导航滚动效果
+
+// ===== 多语言切换（中/日/韩/英，自动检测系统语言） =====
+const I18N = {
+  "nav_about": {
+    "ja": "会社概要",
+    "ko": "회사 소개",
+    "en": "About Us"
+  },
+  "nav_services": {
+    "ja": "業務内容",
+    "ko": "업무 내용",
+    "en": "Services"
+  },
+  "nav_detail": {
+    "ja": "サービス詳細",
+    "ko": "서비스 상세",
+    "en": "Service Details"
+  },
+  "nav_news": {
+    "ja": "最新政策",
+    "ko": "최신 정책",
+    "en": "Latest Policy"
+  },
+  "nav_member": {
+    "ja": "会員登録",
+    "ko": "회원 가입",
+    "en": "Membership"
+  },
+  "nav_contact": {
+    "ja": "お問い合わせ",
+    "ko": "문의하기",
+    "en": "Contact"
+  },
+  "nav_cta": {
+    "ja": "オンライン相談",
+    "ko": "온라인 상담",
+    "en": "Online Inquiry"
+  },
+  "hero_h1": {
+    "ja": "中国の設立・会計・税務・監査コンサルティング<br>信頼できる<span class=\"gold\">瀚加日</span>にお任せください",
+    "ko": "중국 설립·회계·세무·감사 컨설팅<br>믿을 수 있는 <span class=\"gold\">한일세무회계</span>에 맡기세요",
+    "en": "China Establishment, Accounting, Tax & Audit Consulting<br>Trust <span class=\"gold\">Hanjiari</span>"
+  },
+  "hero_sub": {
+    "ja": "中国市场に20年、日本市场に40年の実績を持つ瀚加日グループが、外資系企業の中国進出と中国企業の海外展開をトータルにサポートします。",
+    "ko": "중국 시장 20년, 일본 시장 40년의 한일 그룹이 외자기업의 중국 진출과 중국기업의 해외 진출을 종합 지원합니다.",
+    "en": "With 20 years in China and 40 years in Japan, the Hanjiari Group provides comprehensive financial and tax services for foreign enterprises entering China and Chinese enterprises going global."
+  },
+  "hero_ph_lbl": {
+    "ja": "お問い合わせ電話",
+    "ko": "상담 전화",
+    "en": "Hotline"
+  },
+  "hero_mail_lbl": {
+    "ja": "業務用メール",
+    "ko": "업무 이메일",
+    "en": "Business Email"
+  },
+  "hero_addr_lbl": {
+    "ja": "上海本社",
+    "ko": "상하이 본사",
+    "en": "Shanghai HQ"
+  },
+  "btn_services": {
+    "ja": "業務内容を見る",
+    "ko": "업무 내용 보기",
+    "en": "Our Services"
+  },
+  "btn_contact": {
+    "ja": "相談を予約する",
+    "ko": "상담 예약",
+    "en": "Book a Consultation"
+  },
+  "trust1": {
+    "ja": "中国市场での実績年数",
+    "ko": "중국 시장 경력",
+    "en": "Years in China Market"
+  },
+  "trust2": {
+    "ja": "日本市场での実績年数",
+    "ko": "일본 시장 경력",
+    "en": "Years in Japan Market"
+  },
+  "trust3": {
+    "ja": "サービス企業数",
+    "ko": "서비스 기업 수",
+    "en": "Enterprise Clients"
+  },
+  "trust4": {
+    "ja": "中国公認会計士が指導",
+    "ko": "CICPA 전문가 그룹",
+    "en": "CICPA-led Team"
+  },
+  "about_h2": {
+    "ja": "瀚加日財務コンサルティング",
+    "ko": "한일세무회계컨설팅",
+    "en": "Hanjiari Financial Consulting"
+  },
+  "about_p": {
+    "ja": "上海瀚加日財務コンサルティング有限公司（상하이한일세무회계컨설팅）は、中韓両国の税務・会計専門家によるプロフェッショナルコンサルティング機関です。中国公認会計士（CICPA）が率いるチームは、中国語・日本語・韓国語の三言語対応とSAP ERP実務経験を備えています。在华韓国・日本企業及び中国企業に対し、会社設立・登記、記帳代行、税務申告、監査証明、M&Aデューデリジェンス、清算・抹消、IFRS/K-IFRS連結報告書作成までワンストップで提供します。韓国のケイジェイファイナンスコンサルティング（주）と連携し、中韓両国でのビジネス展開を全面的にサポートします。",
+    "ko": "상하이한일세무회계컨설팅은 중한 양국 세무·회계 전문가로 구성된 전문 컨설팅 기관입니다. 중국공인회계사(CICPA)가 이끄는 팀은 한국어·중국어·일본어 3개국어와 SAP ERP 실무 경험을 갖추고 있습니다. 중국 내 한·일계 기업과 중국 기업을 대상으로 법인 설립·등기, 기장대행, 세무신고, 감사, M&A 실사, 청산·말소, IFRS/K-IFRS 연결패키지 제출까지 원스톱으로 제공합니다. 한국의 케이제이파이낸스컨설팅(주)과 협력하여 한중 양국 비즈니스를 전방위 지원합니다.",
+    "en": "Shanghai Hanjiari Financial Consulting Co., Ltd. (상하이한일세무회계컨설팅) is a professional consulting firm founded by Korean and Chinese tax & accounting experts. Led by a CICPA (Chinese Certified Public Accountant), our trilingual team (Chinese, Japanese, Korean) brings deep SAP ERP experience. We provide one-stop services for Korean and Japanese companies in China: company registration, bookkeeping, tax filing, audit, M&A due diligence, liquidation, and IFRS/K-IFRS consolidated reporting — in partnership with KJ Finance Consulting Co., Ltd. in Korea."
+  },
+  "team1_title": {
+    "ja": "中国公認会計士（CICPA）・創設者",
+    "ko": "중국공인회계사(CICPA) · 창업자",
+    "en": "CICPA · Founder"
+  },
+  "team1_l1": {
+    "ja": "中国公認会計士（中国注册会计师）資格",
+    "ko": "중국공인회계사(CICPA) 자격",
+    "en": "Certified Public Accountant (CICPA)"
+  },
+  "team1_l2": {
+    "ja": "韓国語・日本語に精通",
+    "ko": "한국어·일본어 능통",
+    "en": "Fluent in Korean & Japanese"
+  },
+  "team1_l3": {
+    "ja": "大連Dell（日本財務業務）での勤務経験",
+    "ko": "다롄 Dell(일본 재무 업무) 근무 경력",
+    "en": "Worked at Dell Dalian (Japan Finance)"
+  },
+  "team1_l4": {
+    "ja": "上海立信会計事務所（BDOメンバーファーム）勤務経験",
+    "ko": "상하이 리신 회계사무소(BDO) 근무 경력",
+    "en": "Worked at Shanghai Lixin Accounting Firm (BDO)"
+  },
+  "team2_title": {
+    "ja": "SAP ERPエキスパート・パートナー",
+    "ko": "SAP ERP 전문가 · 파트너",
+    "en": "SAP ERP Expert · Partner"
+  },
+  "team2_l1": {
+    "ja": "SAP ERP（MMモジュール）実務エキスパート",
+    "ko": "SAP ERP(MM 모듈) 실무 전문가",
+    "en": "SAP ERP (MM module) specialist"
+  },
+  "team2_l3": {
+    "ja": "福岡でシステム開発・システム営業（NTT DATA）",
+    "ko": "후쿠오카 시스템 개발·영업(NTT DATA)",
+    "en": "System development & sales in Fukuoka (NTT DATA)"
+  },
+  "team2_l4": {
+    "ja": "パナソニック電機機電（中国）有限公司での製品営業経験",
+    "ko": "파나소닉 전기기전(중국) 유한공사 제품 영업 경력",
+    "en": "Product sales at Panasonic (China)"
+  },
+  "svc1_h": {
+    "ja": "設立登記",
+    "ko": "설립 등기",
+    "en": "Company Registration"
+  },
+  "svc1_p": {
+    "ja": "誠実な理念と長年の経験で、会社設立・登記変更を煩雑にせず、一式の手続きをより簡単・安心・効率的に。",
+    "ko": "정직한 이념과 오랜 경험으로 회사 설립·등기 변경을 복잡하지 않게, 원스톱으로 더 간편하고 안심되게.",
+    "en": "With integrity and years of experience, we make company establishment and registration changes simple, secure, and efficient."
+  },
+  "svc1_l1": {
+    "ja": "外商独資／合弁会社の設立",
+    "ko": "외자단독/합자회사 설립",
+    "en": "WFOE / JV establishment"
+  },
+  "svc1_l2": {
+    "ja": "駐在員事務所の設立・延長",
+    "ko": "대표처 설립·연장",
+    "en": "Representative office setup & renewal"
+  },
+  "svc1_l3": {
+    "ja": "支店・支社の設立",
+    "ko": "지점·지사 설립",
+    "en": "Branch office establishment"
+  },
+  "svc2_h": {
+    "ja": "会計サービス",
+    "ko": "회계 서비스",
+    "en": "Accounting"
+  },
+  "svc2_p": {
+    "ja": "ベテラン会計専門家がお客様の業務を深く理解し、最適なサービスを提供。数字の心配なく業務開拓に専念できます。",
+    "ko": "베테랑 회계 전문가가 고객의 업무를 깊이 이해하고 최적의 서비스를 제공합니다. 숫자 걱정 없이 업무 개척에 집중하세요.",
+    "en": "Senior accountants deeply understand your business and provide tailored services, so you can focus on growth without worrying about numbers."
+  },
+  "svc2_l1": {
+    "ja": "記帳代行",
+    "ko": "기장대행",
+    "en": "Bookkeeping"
+  },
+  "svc2_l2": {
+    "ja": "月次・四半期税務申告",
+    "ko": "월간·분기 세무신고",
+    "en": "Monthly / quarterly tax filing"
+  },
+  "svc2_l3": {
+    "ja": "輸出還付",
+    "ko": "수출환급",
+    "en": "Export tax rebate"
+  },
+  "svc3_h": {
+    "ja": "財税コンサルティング",
+    "ko": "재세무 컨설팅",
+    "en": "Financial Tax Consulting"
+  },
+  "svc3_p": {
+    "ja": "ビッグデータ・スマート化技術の革新により財務管理はAI時代へ。決算・申告データから問題を発見し、企業の持続的発展を支援します。",
+    "ko": "빅데이터·스마트 기술 혁신으로 재무관리는 AI 시대에 진입했습니다. 재무제표·신고 데이터에서 문제를 발견하여 기업의 지속적 발전을 지원합니다.",
+    "en": "As big data and smart technologies drive finance into the AI era, we uncover issues from financial statements and filing data to support sustainable growth."
+  },
+  "svc3_l1": {
+    "ja": "財務健康診断",
+    "ko": "재무 건강 진단",
+    "en": "Financial health diagnosis"
+  },
+  "svc3_l2": {
+    "ja": "移転価格税制対応",
+    "ko": "이전가격 대응",
+    "en": "Transfer pricing"
+  },
+  "svc3_l3": {
+    "ja": "財務デューデリジェンス（DD）",
+    "ko": "재무 실사(DD)",
+    "en": "Financial due diligence (DD)"
+  },
+  "svc4_h": {
+    "ja": "監査サービス",
+    "ko": "감사 서비스",
+    "en": "Audit"
+  },
+  "svc4_p": {
+    "ja": "一流の外部監査プロセスと年度監査・独立性を重視。財務情報だけでなく企業運営の潜在的リスクも考慮します。",
+    "ko": "일류 외부감사 프로세스와 연도감사·독립성을 중시합니다. 재무정보뿐 아니라 기업 운영의 잠재적 리스크도 고려합니다.",
+    "en": "We uphold first-class external audit processes, annual audits, and independence — examining not only financials but also operational risks."
+  },
+  "svc4_l1": {
+    "ja": "年度法定監査支援",
+    "ko": "연도 법정감사 지원",
+    "en": "Annual statutory audit support"
+  },
+  "svc4_l2": {
+    "ja": "巡回監査",
+    "ko": "순회 감사",
+    "en": "Periodic internal audit"
+  },
+  "svc4_l3": {
+    "ja": "J-SOX内部統制指導",
+    "ko": "J-SOX 내부통제 지도",
+    "en": "J-SOX internal control guidance"
+  },
+  "detail_h2": {
+    "ja": "業務内容詳細",
+    "ko": "업무 내용 상세",
+    "en": "Service Details"
+  },
+  "detail_p": {
+    "ja": "会社設立から日常運営、海外展開まで、瀚加日が企業ライフサイクル全体の財税サポートを提供します。",
+    "ko": "법인 설립부터 일상 운영, 해외 진출까지 한일세무회계가 기업 라이프사이클 전체의 재무·세무 지원을 제공합니다.",
+    "en": "From company establishment to daily operations and overseas expansion, Hanjiari supports your entire business lifecycle."
+  },
+  "dt1_h": {
+    "ja": "企業設立・登記登録",
+    "ko": "법인 설립·등기 등록",
+    "en": "Company Establishment & Registration"
+  },
+  "dt1_l1": {
+    "ja": "立地選定協力・営業場所確定（賃貸契約締結・賃貸管理登録の同伴）",
+    "ko": "입지 선정 협조·영업장소 확정(임대차 계약 체결 및 등록 동반)",
+    "en": "Site selection & premises setup (lease signing & registration)"
+  },
+  "dt1_l2": {
+    "ja": "設立手続き・設立前後の注意事項コンサルティング",
+    "ko": "설립 절차·설립 전후 주의사항 컨설팅",
+    "en": "Establishment procedures & pre/post advice"
+  },
+  "dt1_l3": {
+    "ja": "外資系会社設立（外商独資、合弁、自然人独資、中外合弁等）",
+    "ko": "외자기업 설립(외자단독, 합자, 자연인 단독, 중외합자 등)",
+    "en": "Foreign company setup (WFOE, JV, etc.)"
+  },
+  "dt1_l4": {
+    "ja": "外国企業常駐代表機構の設立・登記延長",
+    "ko": "외국기업 상주대표처 설립·등기 연장",
+    "en": "Foreign representative office setup & renewal"
+  },
+  "dt1_l5": {
+    "ja": "海外子会社・支社の設立",
+    "ko": "해외 자회사·지사 설립",
+    "en": "Overseas subsidiary / branch setup"
+  },
+  "dt2_h": {
+    "ja": "変更登記・組織再編",
+    "ko": "변경 등기·조직 개편",
+    "en": "Change Registration & Reorganization"
+  },
+  "dt2_l1": {
+    "ja": "買収・合併・分割手続き及び財税法律コンサルティング",
+    "ko": "인수·합병·분할 절차 및 재세무 법률 컨설팅",
+    "en": "M&A & demerger procedures with tax/legal advice"
+  },
+  "dt2_l2": {
+    "ja": "清算・抹消の全プロセス処理（前期方案から残金送金まで）",
+    "ko": "청산·말소 전 프로세스 처리(사전 방안부터 잔여자금 송금까지)",
+    "en": "Full liquidation process (planning to fund remittance)"
+  },
+  "dt2_l3": {
+    "ja": "代表処から法人へのシームレス移行",
+    "ko": "대표처에서 법인으로의 원활한 전환",
+    "en": "Seamless representative office-to-entity conversion"
+  },
+  "dt2_l4": {
+    "ja": "株式譲渡手続き代行・増資減資",
+    "ko": "주식 양도 절차 대행·증자 감자",
+    "en": "Share transfer, capital increase / decrease"
+  },
+  "dt2_l5": {
+    "ja": "各種登記変更（社名・経営範囲・住所等）",
+    "ko": "각종 등기 변경(상호·경영범위·주소 등)",
+    "en": "Various registration changes"
+  },
+  "dt3_h": {
+    "ja": "日本への投資",
+    "ko": "일본 투자",
+    "en": "Investment in Japan"
+  },
+  "dt3_l1": {
+    "ja": "対日投資コンサルティング・子会社設立手続き支援",
+    "ko": "일본 투자 컨설팅·자회사 설립 절차 지원",
+    "en": "Japan investment consulting & subsidiary setup"
+  },
+  "dt3_l2": {
+    "ja": "日本子会社設立後のワンストップ業務サービス",
+    "ko": "일본 자회사 설립 후 원스톱 업무 서비스",
+    "en": "One-stop services after Japan subsidiary setup"
+  },
+  "dt3_l3": {
+    "ja": "日本投資プロセスの全面指導",
+    "ko": "일본 투자 프로세스 전반 지도",
+    "en": "Full guidance on Japan investment process"
+  },
+  "dt3_l4": {
+    "ja": "海外親会社関連業務支援",
+    "ko": "해외 본사 관련 업무 지원",
+    "en": "Overseas parent company support"
+  },
+  "dt4_h": {
+    "ja": "人事＆労務・外国人業務",
+    "ko": "인사·노무·외국인 업무",
+    "en": "HR & Labor & Foreigner Services"
+  },
+  "dt4_l1": {
+    "ja": "外国人就労許可証・居留許可等の代行（A類/B類）",
+    "ko": "외국인 취업허가증·거류허가 대행(A/B류)",
+    "en": "Work permits & residence permits (A/B)"
+  },
+  "dt4_l2": {
+    "ja": "給与・個人所得税計算、就業規則作成支援",
+    "ko": "급여·개인소득세 계산, 취업규칙 작성 지원",
+    "en": "Payroll & IIT calculation, labor rules"
+  },
+  "dt4_l3": {
+    "ja": "社保・公積金の口座開設・納付・移転",
+    "ko": "사회보험·적립금 계좌 개설·납부·이전",
+    "en": "Social security & housing fund accounts"
+  },
+  "dt4_l4": {
+    "ja": "短期派遣サービス・人材紹介支援",
+    "ko": "단기 파견 서비스·인재 채용 지원",
+    "en": "Short-term staffing & recruitment"
+  },
+  "dt4_l5": {
+    "ja": "外国人招待状・来中就労許可・居留許可の一貫代行",
+    "ko": "외국인 초청장·입국 취업허가·거류허가 일괄 대행",
+    "en": "End-to-end visa & permit services"
+  },
+  "dt5_h": {
+    "ja": "特別財税専門サービス",
+    "ko": "특별 재세무 전문 서비스",
+    "en": "Special Financial & Tax Services"
+  },
+  "dt5_l1": {
+    "ja": "財務健康診断報告書",
+    "ko": "재무 건강 진단 보고서",
+    "en": "Financial health diagnostic report"
+  },
+  "dt5_l2": {
+    "ja": "財務デューデリジェンス（DD）",
+    "ko": "재무 실사(DD)",
+    "en": "Financial due diligence (DD)"
+  },
+  "dt5_l3": {
+    "ja": "移転価格リスク調査・同期資料作成",
+    "ko": "이전가격 리스크 조사·동기자료 작성",
+    "en": "Transfer pricing risk review & documentation"
+  },
+  "dt5_l4": {
+    "ja": "企業価値評価",
+    "ko": "기업 가치 평가",
+    "en": "Business valuation"
+  },
+  "dt5_l5": {
+    "ja": "新会計基準導入アドバイザー・財務制度作成",
+    "ko": "신회계기준 도입 자문·재무제도 작성",
+    "en": "New accounting standard adoption & policies"
+  },
+  "dt5_l6": {
+    "ja": "経営層財税研修・ERP導入支援",
+    "ko": "경영진 재세무 교육·ERP 도입 지원",
+    "en": "Executive tax training & ERP support"
+  },
+  "dt6_h": {
+    "ja": "法務支援",
+    "ko": "법무 지원",
+    "en": "Legal Support"
+  },
+  "dt6_l1": {
+    "ja": "労働契約等のコンサルティング",
+    "ko": "근로계약 등 컨설팅",
+    "en": "Labor contract consulting"
+  },
+  "dt6_l2": {
+    "ja": "経営契約等の法務支援",
+    "ko": "경영계약 등 법무 지원",
+    "en": "Commercial contract legal support"
+  },
+  "dt6_l3": {
+    "ja": "企業社会信用調査報告書作成",
+    "ko": "기업 사회신용 조사보고서 작성",
+    "en": "Corporate credit report preparation"
+  },
+  "dt6_l4": {
+    "ja": "長期売掛金回収支援",
+    "ko": "장기 미수금 회수 지원",
+    "en": "Long-term receivable collection"
+  },
+  "dt7_h": {
+    "ja": "月次サービス＆年次サービス",
+    "ko": "월간 서비스 & 연간 서비스",
+    "en": "Monthly & Annual Services"
+  },
+  "dt7_c1_h": {
+    "ja": "月次サービス",
+    "ko": "월간 서비스",
+    "en": "Monthly Services"
+  },
+  "dt7_l1": {
+    "ja": "記帳代行・月次財務報告書作成",
+    "ko": "기장대행·월간 재무보고서 작성",
+    "en": "Bookkeeping & monthly financial reports"
+  },
+  "dt7_l2": {
+    "ja": "税務申告（増値税・個税・企業所得税・印紙税等）",
+    "ko": "세무신고(증치세·개인소득세·법인세·인지세 등)",
+    "en": "Tax filing (VAT, IIT, CIT, stamp tax)"
+  },
+  "dt7_l3": {
+    "ja": "月次統計報告・輸出還付申告",
+    "ko": "월간 통계 보고·수출환급 신고",
+    "en": "Monthly statistics & export rebates"
+  },
+  "dt7_l4": {
+    "ja": "外国籍者個税代理申告・月次巡回監査",
+    "ko": "외국인 개인소득세 대리 신고·월간 순회 감사",
+    "en": "Expat IIT filing & monthly audits"
+  },
+  "dt7_l5": {
+    "ja": "財務分析・月次審査報告（財税リスク提示）",
+    "ko": "재무분석·월간 심사보고(재세무 리스크 제시)",
+    "en": "Financial analysis & monthly review reports"
+  },
+  "dt7_c2_h": {
+    "ja": "年次サービス",
+    "ko": "연간 서비스",
+    "en": "Annual Services"
+  },
+  "dt7_l6": {
+    "ja": "法定監査支援・年度決算補助",
+    "ko": "법정감사 지원·연도결산 보조",
+    "en": "Statutory audit support & year-end closing"
+  },
+  "dt7_l7": {
+    "ja": "年度個税総合所得の確定申告",
+    "ko": "연도 개인소득세 종합소득 확정신고",
+    "en": "Annual IIT comprehensive settlement"
+  },
+  "dt7_l8": {
+    "ja": "企業所得税の源泉徴収申告・指導",
+    "ko": "법인세 원천징수 신고·지도",
+    "en": "CIT withholding filing & guidance"
+  },
+  "dt7_l9": {
+    "ja": "年度工商公示・全国税務調査表申告",
+    "ko": "연도 공상 공시·전국 세무조사표 신고",
+    "en": "Annual business disclosure & tax surveys"
+  },
+  "dt7_l10": {
+    "ja": "連結報告書作成支援・IFRS変換",
+    "ko": "연결보고서 작성 지원·IFRS 변환",
+    "en": "Consolidated reports & IFRS conversion"
+  },
+  "adv_h2": {
+    "ja": "瀚加日を選ぶ5つの理由",
+    "ko": "한일세무회계를 선택하는 5가지 이유",
+    "en": "Five Reasons to Choose Hanjiari"
+  },
+  "adv1_h": {
+    "ja": "専門的で信頼性が高い",
+    "ko": "전문적이고 신뢰할 수 있는",
+    "en": "Professional & Reliable"
+  },
+  "adv1_p": {
+    "ja": "ベテランCPAチーム、中国財税実務20年の経験で、外資系企業の中国進出と中国企業の海外展開を専門対応。",
+    "ko": "베테랑 CPA 팀, 중국 재세무 실무 20년 경험으로 외자기업의 중국 진출과 중국기업의 해외 진출을 전문 대응합니다.",
+    "en": "Senior CPA team with 20 years of Chinese tax practice, expertly supporting foreign entry and Chinese expansion."
+  },
+  "adv2_h": {
+    "ja": "迅速かつ効率的",
+    "ko": "신속하고 효율적인",
+    "en": "Fast & Efficient"
+  },
+  "adv2_p": {
+    "ja": "迅速なレスポンス体制で、会計税務アウトソーシングをタイムリーかつ正確に遂行。",
+    "ko": "신속한 대응 체제로 회계·세무 아웃소싱을 적시에 정확히 수행합니다.",
+    "en": "Quick response with timely, accurate accounting and tax outsourcing."
+  },
+  "adv3_h": {
+    "ja": "誠実で信頼できる",
+    "ko": "정직하고 신뢰할 수 있는",
+    "en": "Honest & Trustworthy"
+  },
+  "adv3_p": {
+    "ja": "誠実な経営理念と信用厳守で、お客様との長期的な信頼関係を構築。",
+    "ko": "정직한 경영 이념과 신용 준수로 고객과의 장기적 신뢰 관계를 구축합니다.",
+    "en": "Honest principles and strict integrity build long-term client trust."
+  },
+  "adv4_h": {
+    "ja": "中日韓トリリンガル",
+    "ko": "한중일 3개국어",
+    "en": "Trilingual Team"
+  },
+  "adv4_p": {
+    "ja": "中日韓トリリンガルチームが、日本親会社と中国子会社の連携をスムーズに。",
+    "ko": "한중일 3개국어 팀이 일본 본사와 중국 자회사 간 협력을 원활하게 합니다.",
+    "en": "Trilingual team seamlessly connects Japanese/ Korean parents with Chinese subsidiaries."
+  },
+  "adv5_h": {
+    "ja": "総合力",
+    "ko": "종합 역량",
+    "en": "Comprehensive Strength"
+  },
+  "adv5_p": {
+    "ja": "設立から清算、財務から法務、人事から業務まで、ライフサイクル全体をワンストップで。",
+    "ko": "설립부터 청산, 재무부터 법무, 인사부터 업무까지 라이프사이클 전체를 원스톱으로 제공합니다.",
+    "en": "One-stop support across the full lifecycle — establishment to liquidation, finance to legal, HR to operations."
+  },
+  "adv6_h": {
+    "ja": "巡回監査体制",
+    "ko": "순회 감사 체제",
+    "en": "Periodic Audit System"
+  },
+  "adv6_p": {
+    "ja": "経営監査・コンプライアンス監査・内部統制監査を実施し、改善方案を提供・フォロー。",
+    "ko": "경영감사·컴플라이언스 감사·내부통제 감사를 실시하고 개선 방안을 제공·후속 관리합니다.",
+    "en": "Operational, compliance, and internal control audits with improvement follow-through."
+  },
+  "cta_h2": {
+    "ja": "御社の財務健康診断はいかがですか？",
+    "ko": "귀사의 재무 건강 진단을 받아보세요",
+    "en": "Give Your Company a Financial Health Check"
+  },
+  "cta_p": {
+    "ja": "経験豊富なCPA内部審査チームが御社の財務健康診断を実施。今メール予約すると無料診断のチャンス！",
+    "ko": "경험 많은 CPA 내부심사 팀이 귀사의 재무 건강 진단을 실시합니다. 지금 이메일 예약 시 무료 진단 기회!",
+    "en": "Our experienced CPA audit team will diagnose your company's financial health. Book by email now for a chance at a free diagnosis!"
+  },
+  "cta_btn1": {
+    "ja": "✉ メール予約",
+    "ko": "✉ 이메일 예약",
+    "en": "✉ Book by Email"
+  },
+  "cta_btn2": {
+    "ja": "詳細を見る",
+    "ko": "자세히 보기",
+    "en": "Learn More"
+  },
+  "news_h2": {
+    "ja": "最新政策と瀚加日速報",
+    "ko": "최신 정책과 한일세무회계 속보",
+    "en": "Latest Policy & Hanjiari Updates"
+  },
+  "news_p": {
+    "ja": "最新の財税政策動向と専門解説をいち早くお届けします。",
+    "ko": "최신 재세무 정책 동향과 전문 해설을 신속하게 전달합니다.",
+    "en": "Timely updates and expert analysis on the latest tax policies."
+  },
+  "news_tag1": {
+    "ja": "政策解説",
+    "ko": "정책 해설",
+    "en": "Policy Analysis"
+  },
+  "news1_h": {
+    "ja": "増値税法施行後の企業税務コンプライアンス要点",
+    "ko": "증치세법 시행 후 기업 세무 컴플라이언스 요점",
+    "en": "VAT Law Implementation: Compliance Essentials"
+  },
+  "news1_p": {
+    "ja": "新増値税法施行後、企業が注意すべきインボイス管理・仕入税額控除・申告プロセスの要点を解説。",
+    "ko": "신 증치세법 시행 후 기업이 주의해야 할 인보이스 관리·매입세액 공제·신고 프로세스 요점을 해설합니다.",
+    "en": "Key compliance points on invoicing, input VAT credit, and filing after the new VAT Law."
+  },
+  "news_tag2": {
+    "ja": "瀚加日速報",
+    "ko": "한일세무회계 속보",
+    "en": "Hanjiari Updates"
+  },
+  "news2_h": {
+    "ja": "2026年度企業所得税確定申告の注意点",
+    "ko": "2026년도 법인세 확정신고 주의사항",
+    "en": "2026 Corporate Income Tax Filing Notes"
+  },
+  "news2_p": {
+    "ja": "確定申告シーズン到来。収入認識・コスト控除・優遇適用の要点を整理。",
+    "ko": "확정신고 시즌 도래. 수익 인식·비용 공제·우대 적용 요점을 정리합니다.",
+    "en": "Key points on revenue recognition, deductions, and incentives for filing season."
+  },
+  "news_tag3": {
+    "ja": "業界洞察",
+    "ko": "업계 인사이트",
+    "en": "Industry Insight"
+  },
+  "news3_h": {
+    "ja": "対日投資ブーム下のクロスボーダー財税プランニング",
+    "ko": "일본 투자 붐 속 크로스보더 재세무 플래닝",
+    "en": "Cross-border Tax Planning in the Japan Investment Boom"
+  },
+  "news3_p": {
+    "ja": "中日経済交流の深化に伴い、中国企業の対日投資における財税プランニングの実践的アドバイス。",
+    "ko": "한중 경제 교류 심화에 따라 중국기업의 일본 투자 시 재세무 플래닝 실용 조언을 제공합니다.",
+    "en": "Practical tax planning advice for Chinese companies investing in Japan."
+  },
+  "news_more": {
+    "ja": "詳細はこちら →",
+    "ko": "자세히 보기 →",
+    "en": "Read More →"
+  },
+  "member_h2": {
+    "ja": "会員登録で無料相談",
+    "ko": "회원 가입하고 무료 상담",
+    "en": "Register for Free Consultation"
+  },
+  "member_p1": {
+    "ja": "瀚加日会員になると、最新税務情報・瀚加日速報・専門解説を定期配信！すでに",
+    "ko": "한일세무회계 회원이 되면 최신 세무 정보·속보·전문 해설을 정기 발송! 이미",
+    "en": "Become a Hanjiari member to receive the latest tax updates and analysis regularly! Already"
+  },
+  "member_cnt": {
+    "ja": "人が登録済み",
+    "ko": "명이 가입했습니다",
+    "en": "members registered"
+  },
+  "member_p2": {
+    "ja": "企業設立・変更登記・清算・日本投資などのケース共有は会員センターで。",
+    "ko": "법인 설립·변경 등기·청산·일본 투자 등 사례 공유는 회원센터에서 확인하세요.",
+    "en": "Case studies on establishment, registration, liquidation, and Japan investment await in the member center."
+  },
+  "f_name": {
+    "ja": "氏名",
+    "ko": "성명",
+    "en": "Name"
+  },
+  "f_name_ph": {
+    "ja": "氏名を入力",
+    "ko": "성명을 입력하세요",
+    "en": "Enter your name"
+  },
+  "f_company": {
+    "ja": "会社",
+    "ko": "회사",
+    "en": "Company"
+  },
+  "f_company_ph": {
+    "ja": "会社名を入力",
+    "ko": "회사명을 입력하세요",
+    "en": "Enter company name"
+  },
+  "f_addr": {
+    "ja": "住所",
+    "ko": "주소",
+    "en": "Address"
+  },
+  "f_addr_ph": {
+    "ja": "住所を入力",
+    "ko": "주소를 입력하세요",
+    "en": "Enter address"
+  },
+  "f_phone": {
+    "ja": "電話",
+    "ko": "전화",
+    "en": "Phone"
+  },
+  "f_phone_ph": {
+    "ja": "電話番号を入力",
+    "ko": "전화번호를 입력하세요",
+    "en": "Enter phone number"
+  },
+  "f_email": {
+    "ja": "メール",
+    "ko": "이메일",
+    "en": "Email"
+  },
+  "f_email_ph": {
+    "ja": "メールアドレスを入力",
+    "ko": "이메일을 입력하세요",
+    "en": "Enter email"
+  },
+  "f_pwd": {
+    "ja": "パスワード設定",
+    "ko": "비밀번호 설정",
+    "en": "Set Password"
+  },
+  "f_pwd_ph": {
+    "ja": "パスワードを設定",
+    "ko": "비밀번호를 설정하세요",
+    "en": "Set a password"
+  },
+  "f_captcha": {
+    "ja": "認証コード",
+    "ko": "인증 코드",
+    "en": "Captcha"
+  },
+  "f_captcha_ph": {
+    "ja": "認証コードを入力",
+    "ko": "인증 코드를 입력하세요",
+    "en": "Enter captcha"
+  },
+  "f_submit": {
+    "ja": "今すぐ登録",
+    "ko": "지금 가입",
+    "en": "Register Now"
+  },
+  "contact_p": {
+    "ja": "ご不明な点がございましたら、お電話またはメッセージでお気軽にご相談ください。",
+    "ko": "궁금한 점이 있으시면 전화나 메시지로 편하게 문의하세요.",
+    "en": "For any questions, feel free to call or leave a message."
+  },
+  "contact_c1_h": {
+    "ja": "上海瀚加日財務コンサルティング有限公司",
+    "ko": "상하이한일세무회계컨설팅 유한공사",
+    "en": "Shanghai Hanjiari Financial Consulting Co., Ltd."
+  },
+  "contact_c2_h": {
+    "ja": "韓国関連会社",
+    "ko": "한국 관련 회사",
+    "en": "Korea Affiliate"
+  },
+  "contact_web": {
+    "ja": "公式サイト",
+    "ko": "홈페이지",
+    "en": "Website"
+  },
+  "foot_nav": {
+    "ja": "クイックナビ",
+    "ko": "빠른 메뉴",
+    "en": "Quick Links"
+  },
+  "foot_links": {
+    "ja": "関連リンク",
+    "ko": "관련 링크",
+    "en": "Related Links"
+  },
+  "fl1": {
+    "ja": "国家税務総局",
+    "ko": "국가세무총국",
+    "en": "State Taxation Administration"
+  },
+  "fl2": {
+    "ja": "中国人民銀行為替レート",
+    "ko": "중국인민은행 환율",
+    "en": "PBOC Exchange Rates"
+  },
+  "fl3": {
+    "ja": "上海市公安局",
+    "ko": "상하이시 공안국",
+    "en": "Shanghai Public Security Bureau"
+  },
+  "fl4": {
+    "ja": "上海市人力資源・社会保障局",
+    "ko": "상하이시 인력자원·사회보장국",
+    "en": "Shanghai HR & Social Security Bureau"
+  },
+  "fl5": {
+    "ja": "上海日本商工会",
+    "ko": "상하이 일본 상공회",
+    "en": "Shanghai Japanese Chamber of Commerce"
+  },
+  "foot_copy": {
+    "ja": "著作権所有 © 2026 上海瀚加日財務コンサルティング有限公司",
+    "ko": "저작권 소유 © 2026 상하이한일세무회계컨설팅 유한공사",
+    "en": "Copyright © 2026 Shanghai Hanjiari Financial Consulting Co., Ltd."
+  }
+};
+
+function detectSystemLang() {
+  const saved = localStorage.getItem('hanjiari_lang');
+  if (saved) return saved;
+  const nav = (navigator.language || 'zh').toLowerCase();
+  if (nav.startsWith('ja')) return 'ja';
+  if (nav.startsWith('ko')) return 'ko';
+  if (nav.startsWith('en')) return 'en';
+  return 'zh'; // 默认中文
+}
+
+function applyLang(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (lang === 'zh') {
+      // 用 innerHTML 恢复，保留 <br> 与内嵌 <span class="gold">
+      el.innerHTML = el.getAttribute('data-zh') || el.innerHTML;
+    } else if (I18N[key] && I18N[key][lang]) {
+      el.innerHTML = I18N[key][lang];
+    }
+  });
+  // placeholder 处理
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (lang === 'zh') {
+      el.placeholder = el.getAttribute('data-zh-ph') || el.placeholder;
+    } else if (I18N[key] && I18N[key][lang]) {
+      el.placeholder = I18N[key][lang];
+    }
+  });
+  // 按钮高亮
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+  localStorage.setItem('hanjiari_lang', lang);
+}
+
+function switchLang(lang) { applyLang(lang); }
+
+// 初始化：记住中文原文（含富文本），然后按系统语言自动切换
+(function initI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    if (!el.getAttribute('data-zh')) el.setAttribute('data-zh', el.innerHTML);
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    if (!el.getAttribute('data-zh-ph')) el.setAttribute('data-zh-ph', el.placeholder);
+  });
+  applyLang(detectSystemLang());
+})();
+
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 10);
 });
+
+// 滚动渐入动画
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 // 移动端菜单
 const toggle = document.getElementById('navToggle');
