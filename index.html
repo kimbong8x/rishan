@@ -52,18 +52,18 @@ section { padding: 96px 0; }
   transition: box-shadow .3s;
 }
 .nav.scrolled { box-shadow: 0 6px 30px rgba(13,43,69,.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-.brand { display: flex; align-items: center; gap: 12px; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; overflow: visible; }
+.brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; white-space: nowrap; }
 .brand-mark {
   width: 40px; height: 40px; border-radius: 8px;
   background: var(--navy);
   display: flex; align-items: center; justify-content: center;
   color: var(--gold-light); font-family: var(--serif); font-weight: 700; font-size: 18px;
 }
-.brand-name { font-family: var(--serif); font-weight: 700; font-size: 17px; color: var(--navy); letter-spacing: .04em; }
-.brand-sub { font-size: 11px; color: var(--muted); letter-spacing: .12em; }
-.nav-links { display: flex; gap: 28px; }
-.nav-links a { font-size: 14px; color: var(--ink); position: relative; padding: 8px 0; }
+.brand-name { font-family: var(--serif); font-weight: 700; font-size: 17px; color: var(--navy); letter-spacing: .04em; display: inline; white-space: nowrap; }
+.brand-sub { font-size: 11px; color: var(--navy); letter-spacing: .08em; font-weight: 700; display: inline; margin-left: 8px; white-space: nowrap; }
+.nav-links { display: flex; gap: 24px; flex-shrink: 0; }
+.nav-links a { font-size: 14px; color: var(--ink); position: relative; padding: 8px 0; white-space: nowrap; font-weight: 700; }
 .nav-links a::after {
   content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px;
   background: var(--gold); transition: width .25s;
