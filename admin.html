@@ -104,6 +104,35 @@ td.time { white-space: nowrap; color: #5c6b7a; font-size: 12px; }
   td.msg { max-width: 180px; }
   .topbar { padding: 14px 16px; }
 }
+
+/* 与官网统一的后台界面优化 */
+body { background: #f4f7f8; color: #243342; }
+.topbar { padding: 18px 32px; background: linear-gradient(120deg, #09213b, #0e3a61); box-shadow: 0 4px 18px rgba(13,43,69,.18); }
+.topbar h1 { letter-spacing: .04em; }
+.container { max-width: 1180px; margin: 34px auto 48px; }
+.toolbar { padding: 16px 18px; margin-bottom: 20px; background: #fff; border: 1px solid #e2e9ec; border-radius: 14px; box-shadow: 0 8px 24px rgba(13,43,69,.05); }
+.toolbar .count { margin-right: auto; }
+.btn { border-radius: 999px; padding: 10px 18px; }
+.btn-export { box-shadow: 0 5px 12px rgba(13,43,69,.17); }
+.stats { gap: 18px; margin-bottom: 26px; }
+.stat-card { position: relative; overflow: hidden; border: 1px solid #e2e9ec; border-radius: 14px; padding: 22px 24px; box-shadow: none; }
+.stat-card::after { content: ""; position: absolute; width: 86px; height: 86px; right: -34px; bottom: -38px; border: 1px solid rgba(184,147,90,.35); border-radius: 50%; }
+.stat-card .num { font-size: 31px; }
+table { border: 1px solid #e2e9ec; border-radius: 14px; box-shadow: 0 8px 26px rgba(13,43,69,.06); }
+th { padding: 14px 16px; background: #103652; }
+td { padding: 14px 16px; border-bottom-color: #edf1f3; }
+tr:hover td { background: #f8fafb; }
+.empty { border: 1px solid #e2e9ec; border-radius: 14px; box-shadow: none; }
+.note { border-color: #d8e1e5; border-radius: 12px; padding: 15px 18px; }
+.login-wrap { background: radial-gradient(700px 420px at 85% 8%, rgba(198,163,104,.22), transparent 55%), linear-gradient(135deg, #091f38 0%, #0d2b45 58%, #123f67 100%); }
+.login-box { border-radius: 18px; border: 1px solid rgba(255,255,255,.42); box-shadow: 0 28px 70px rgba(0,0,0,.32); }
+.login-box .lock { width: 62px; height: 62px; display: grid; place-items: center; margin: 0 auto 18px; border-radius: 16px; background: #edf3f5; font-size: 29px; }
+.login-btn { border-radius: 999px; box-shadow: 0 8px 18px rgba(13,43,69,.18); }
+@media (max-width: 768px) {
+  .container { margin-top: 20px; }
+  .toolbar .count { width: 100%; }
+  .toolbar .btn { flex: 1; }
+}
 </style>
 </head>
 <body>

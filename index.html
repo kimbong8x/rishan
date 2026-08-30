@@ -383,6 +383,127 @@ section { padding: 96px 0; }
   .lang-switch { margin-left: 0; margin-top: 16px; flex-wrap: wrap; gap: 8px; padding-top: 16px; border-top: 1px solid var(--line); }
   .lang-btn { padding: 8px 16px; font-size: 13px; flex: 1; text-align: center; }
 }
+
+/* ============ 2026 视觉优化 ============ */
+:root {
+  --paper: #f6f7f8;
+  --line: #dfe5e9;
+  --ink: #243342;
+  --muted: #667584;
+  --shadow: 0 16px 42px rgba(13, 43, 69, .09);
+  --shadow-lg: 0 26px 56px rgba(13, 43, 69, .16);
+}
+body { background: #fff; letter-spacing: .01em; }
+.container { max-width: 1240px; }
+section { padding: 112px 0; }
+.nav { background: rgba(255,255,255,.92); border-bottom-color: rgba(223,229,233,.82); }
+.nav-inner { height: 80px; }
+.brand-mark { width: 44px; height: 44px; border-radius: 12px; box-shadow: 0 8px 20px rgba(13,43,69,.2); }
+.brand-name { display: block; line-height: 1.25; }
+.brand-sub { display: block; margin: 3px 0 0; font-size: 9px; letter-spacing: .13em; color: var(--muted); }
+.brand { gap: 0; }
+.brand-logo { display: block; width: 272px; height: auto; }
+.nav-links { gap: 20px; align-items: center; }
+.nav-links a { font-size: 13px; font-weight: 600; }
+.nav-cta { border-radius: 999px; box-shadow: 0 6px 16px rgba(13,43,69,.18); }
+.hero { min-height: 690px; display: flex; align-items: center; }
+.hero::before { background: radial-gradient(700px 480px at 83% 18%, rgba(198,163,104,.25), transparent 56%), radial-gradient(520px 430px at 8% 94%, rgba(26,79,133,.58), transparent 65%), linear-gradient(135deg, #091f38 0%, #0d2b45 58%, #123f67 100%); }
+.hero-pattern { right: 5%; width: 520px; height: 520px; opacity: .13; transform: translateY(-50%) rotate(8deg); border: 1px solid rgba(212,180,131,.42); border-radius: 50%; }
+.hero-pattern::before, .hero-pattern::after { content: ""; position: absolute; border: 1px solid rgba(212,180,131,.35); border-radius: 50%; inset: 52px; }
+.hero-pattern::after { inset: 112px; }
+.hero-inner { width: 100%; padding: 156px 28px 142px; }
+.hero-tag { border-color: rgba(212,180,131,.64); background: rgba(212,180,131,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
+.hero h1 { max-width: 790px; font-size: clamp(34px, 4vw, 52px); line-height: 1.34; }
+.hero-sub { max-width: 650px; font-size: 16px; }
+.hero-meta { gap: 18px; margin-top: 40px; }
+.hero-meta-item { min-width: 190px; padding: 11px 14px; border: 1px solid rgba(255,255,255,.13); border-radius: 12px; background: rgba(255,255,255,.055); backdrop-filter: blur(8px); }
+.hero-meta-item .ico { width: 36px; height: 36px; font-size: 14px; }
+.hero-btns { margin-top: 44px; }
+.btn { border-radius: 999px; padding: 14px 29px; }
+.btn-gold { background: linear-gradient(135deg, #d2b376, #a97b42); }
+.trust-strip { position: relative; z-index: 2; margin-top: -54px; padding: 0 0 44px; border: 0; background: linear-gradient(to bottom, transparent 0 54px, #fff 54px); }
+.trust-inner { background: #fff; border: 1px solid rgba(223,229,233,.9); border-radius: 18px; padding: 22px 20px; box-shadow: var(--shadow); gap: 0; }
+.trust-item { padding: 7px 18px; border-right: 1px solid var(--line); }
+.trust-item:last-child { border-right: 0; }
+.trust-item .num { font-size: 35px; letter-spacing: -.035em; }
+.section-head { margin-bottom: 62px; }
+.section-head h2 { font-size: clamp(30px, 3vw, 40px); }
+.section-head p { max-width: 670px; margin-left: auto; margin-right: auto; }
+.services-grid { gap: 18px; }
+.service-card { min-height: 350px; border: 1px solid #e9eef1; border-radius: 16px; padding: 36px 28px; box-shadow: none; }
+.service-card::after { content: ""; position: absolute; width: 120px; height: 120px; right: -56px; bottom: -62px; border: 1px solid rgba(184,147,90,.2); border-radius: 50%; transition: transform .35s; }
+.service-card:hover { border-color: rgba(184,147,90,.4); box-shadow: var(--shadow); transform: translateY(-6px); }
+.service-card:hover::after { transform: scale(1.2); }
+.service-card h3 { margin-top: 18px; }
+.team-grid { gap: 20px; }
+.team-card { border: 1px solid #e9eef1; border-radius: 16px; padding: 32px; box-shadow: none; }
+.team-card:hover { box-shadow: var(--shadow); }
+.detail-wrap { background: linear-gradient(180deg, #f5f7f8, #fff); }
+.detail-grid { gap: 18px; }
+.detail-block { border: 1px solid #e7ecef; border-radius: 16px; padding: 36px; box-shadow: none; }
+.detail-block:hover { box-shadow: var(--shadow); }
+.adv-grid { gap: 18px; }
+.adv-item { border: 1px solid #e9eef1; border-radius: 16px; padding: 34px 26px; box-shadow: none; text-align: left; }
+.adv-item:hover { box-shadow: var(--shadow); }
+.adv-item .icon { width: 56px; height: 56px; font-size: 26px; margin-bottom: 16px; border-radius: 14px; }
+.news-grid { gap: 18px; }
+.news-card { border-color: #e3e9ed; border-radius: 16px; box-shadow: none; }
+.news-card:hover { box-shadow: var(--shadow); }
+.news-thumb { height: 196px; justify-content: flex-end; align-items: flex-end; padding: 20px; font-size: 42px; background: linear-gradient(135deg, #e8eff2, #cbdbe3); }
+.news-card:nth-child(2) .news-thumb { background: linear-gradient(135deg, #e6e1d8, #d2bc95); }
+.news-card:nth-child(3) .news-thumb { background: linear-gradient(135deg, #dde8e6, #a9c8c0); }
+.news-thumb .tag { top: 18px; left: 18px; border-radius: 999px; background: rgba(13,43,69,.9); }
+.news-body { padding: 25px; }
+.member { background: linear-gradient(135deg, #f1f5f6, #f9f8f4); }
+.member-wrap { gap: 72px; }
+.member-info h2 { font-size: clamp(28px, 3vw, 38px); line-height: 1.38; }
+.member-form { border: 1px solid #e4eaed; border-radius: 16px; padding: 36px; box-shadow: var(--shadow); }
+.form-group input, .form-group select, .form-group textarea { border-radius: 9px; border-color: #dce4e8; }
+.form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid #dce4e8; font: inherit; line-height: 1.7; resize: vertical; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: 3px solid rgba(184,147,90,.18); border-color: var(--gold); }
+.form-submit { border-radius: 999px; }
+.contact-grid { gap: 18px; }
+.contact-card { border: 1px solid #e5ebee; border-radius: 16px; padding: 34px; }
+.contact-line { border-top: 1px solid #edf0f2; }
+.contact-line:first-of-type { margin-top: 20px; }
+.cta { background: linear-gradient(120deg, #09213b, #0e3a61); }
+.footer { padding-top: 72px; }
+.quick-consult { position: fixed; right: 24px; bottom: 24px; z-index: 90; display: inline-flex; align-items: center; gap: 8px; padding: 13px 19px; border-radius: 999px; background: var(--gold); color: #fff; font-size: 14px; font-weight: 700; box-shadow: 0 12px 28px rgba(13,43,69,.25); transition: transform .2s, background .2s; }
+.quick-consult:hover { transform: translateY(-3px); background: #a97b42; }
+@media (max-width: 960px) {
+  .nav-inner { height: 72px; }
+  .nav-links { top: 72px; }
+  .hero { min-height: auto; }
+  .hero-inner { padding: 132px 24px 110px; }
+  .hero-meta-item { min-width: 0; }
+  .trust-strip { margin-top: -32px; background: linear-gradient(to bottom, transparent 0 32px, #fff 32px); }
+  .trust-inner { padding: 16px 8px; }
+  .trust-item { padding: 8px; }
+  .service-card { min-height: 0; }
+}
+@media (max-width: 560px) {
+  .hero-inner { padding: 116px 20px 88px; }
+  .hero-meta { display: grid; grid-template-columns: 1fr; }
+  .hero-meta-item { padding: 9px 12px; }
+  .trust-strip { padding-bottom: 26px; }
+  .trust-item { border-right: 0; }
+  .trust-item:nth-child(odd) { border-right: 1px solid var(--line); }
+  .quick-consult { right: 16px; bottom: 16px; padding: 12px 16px; }
+  .member-form { padding: 26px 20px; }
+  .brand-logo { width: 205px; }
+}
+
+/* ============ 官方法规库动态内容 ============ */
+.policy-feed { grid-template-columns: repeat(3, 1fr); }
+.policy-card { display: flex; flex-direction: column; min-height: 300px; }
+.policy-card .news-thumb { position: relative; min-height: 126px; height: 126px; align-items: flex-start; }
+.policy-index { margin-left: auto; color: rgba(13,43,69,.72); font: 500 38px/1 var(--serif); letter-spacing: -.05em; }
+.policy-card .news-body { display: flex; flex: 1; flex-direction: column; }
+.policy-card .news-body h3 { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.policy-card .news-body p { -webkit-line-clamp: 1; }
+.policy-card .news-more { margin-top: auto; padding-top: 18px; }
+.policy-status { min-height: 22px; margin-top: 22px; text-align: center; font-size: 12px; color: var(--muted); }
+@media (max-width: 960px) { .policy-feed { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -391,11 +512,7 @@ section { padding: 96px 0; }
 <nav class="nav" id="nav">
   <div class="container nav-inner">
     <a href="#top" class="brand">
-      <span class="brand-mark">瀚</span>
-      <span>
-        <span class="brand-name">瀚加日财务咨询</span>
-        <span class="brand-sub">HANJIARI FINANCIAL CONSULTING</span>
-      </span>
+      <img class="brand-logo" src="hanjiari-logo.svg" alt="上海瀚加日财务咨询有限公司 · HANJIARI FINANCIAL CONSULTING">
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#about"><span data-i18n="nav_about">公司简介</span></a>
@@ -688,35 +805,8 @@ section { padding: 96px 0; }
       <span class="jp">最新政策と瀚加日速報&解読</span>
       <p><span data-i18n="news_p">第一时间传递最新财税政策动态与专业解读。</span></p>
     </div>
-    <div class="news-grid">
-      <a href="#" class="news-card reveal">
-        <div class="news-thumb"><span class="tag"><span data-i18n="news_tag1">政策解读</span></span>📰</div>
-        <div class="news-body">
-          <span class="news-date">2026.08.15</span>
-          <h3><span data-i18n="news1_h">增值税法实施后企业税务合规要点解析</span></h3>
-          <p><span data-i18n="news1_p">新增值税法实施后，企业在发票管理、进项抵扣、申报流程方面有哪些合规要点？瀚加日为您逐一解读。</span></p>
-          <span class="news-more"><span data-i18n="news_more">了解详情 →</span></span>
-        </div>
-      </a>
-      <a href="#" class="news-card reveal">
-        <div class="news-thumb"><span class="tag"><span data-i18n="news_tag2">瀚加日速报</span></span>📈</div>
-        <div class="news-body">
-          <span class="news-date">2026.08.08</span>
-          <h3><span data-i18n="news2_h">2026年度企业所得税汇算清缴注意事项</span></h3>
-          <p><span data-i18n="news2_p">年度汇算清缴季来临，收入确认、成本扣除、优惠适用等关键点全面梳理，助企业顺利完成申报。</span></p>
-          <span class="news-more">了解详情 →</span>
-        </div>
-      </a>
-      <a href="#" class="news-card reveal">
-        <div class="news-thumb"><span class="tag"><span data-i18n="news_tag3">行业洞察</span></span>🌏</div>
-        <div class="news-body">
-          <span class="news-date">2026.07.30</span>
-          <h3><span data-i18n="news3_h">对日投资热潮下的跨境财税规划</span></h3>
-          <p><span data-i18n="news3_p">随着中日经贸往来加深，中国企业赴日投资如何做好跨境财税规划？本文为您提供实用建议。</span></p>
-          <span class="news-more">了解详情 →</span>
-        </div>
-      </a>
-    </div>
+    <div class="news-grid policy-feed" id="policyFeed" aria-live="polite"></div>
+    <p class="policy-status" id="policyStatus">正在同步国家税务总局政策法规库…</p>
   </div>
 </section>
 
@@ -740,7 +830,7 @@ section { padding: 96px 0; }
         <div class="form-group"><label><span data-i18n="f_phone">电话</span> <span class="req">*</span></label><input type="tel" name="phone" required data-i18n-ph="f_phone_ph" placeholder="请输入联系电话"></div>
         <div class="form-group"><label><span data-i18n="f_email">邮箱地址</span> <span class="req">*</span></label><input type="email" name="email" required data-i18n-ph="f_email_ph" placeholder="请输入邮箱地址"></div>
       </div>
-      <div class="form-group full"><label><span data-i18n="f_message">咨询内容</span> <span class="req">*</span></label><textarea name="message" rows="4" required data-i18n-ph="f_message_ph" placeholder="请输入您想咨询的内容" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:6px;font-size:14px;font-family:var(--sans);resize:vertical;"></textarea></div>
+      <div class="form-group full"><label><span data-i18n="f_message">咨询内容</span> <span class="req">*</span></label><textarea name="message" rows="4" required data-i18n-ph="f_message_ph" placeholder="请输入您想咨询的内容"></textarea></div>
       <button type="submit" class="form-submit"><span data-i18n="f_submit">提交咨询</span></button>
       <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:14px;" id="formMsg"></p>
     </form>
@@ -813,6 +903,8 @@ section { padding: 96px 0; }
     </div>
   </div>
 </footer>
+
+<a href="#member" class="quick-consult" aria-label="在线咨询">◌ <span>在线咨询</span></a>
 
 <script>
 // 导航滚动效果
@@ -1669,6 +1761,48 @@ const toggle = document.getElementById('navToggle');
 const links = document.getElementById('navLinks');
 toggle.addEventListener('click', () => links.classList.toggle('open'));
 links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+// 最新政策：优先从同源 PHP 代理获取官方法规库数据；静态部署时保留官方链接兜底。
+const POLICY_LIBRARY_URL = 'https://fgk.chinatax.gov.cn/zcfgk/c100006/listflfg.html';
+const fallbackPolicies = [
+  { title: '财政部 税务总局 中国证监会关于规范转让上市公司限售股个人所得税政策的公告', number: '财政部 税务总局 中国证监会公告2026年第26号', date: '2026-08-28', url: 'https://fgk.chinatax.gov.cn/zcfgk/c102416/c5252027/content.html' },
+  { title: '财政部 税务总局关于明确非应税交易等增值税有关事项的公告', number: '财政部 税务总局公告2026年第25号', date: '2026-08-27', url: 'https://fgk.chinatax.gov.cn/zcfgk/c102416/c5252024/content.html' },
+  { title: '国家税务总局关于公布失效废止的部分税务规范性文件目录的公告', number: '国家税务总局公告2026年第18号', date: '2026-08-10', url: 'https://fgk.chinatax.gov.cn/zcfgk/c100012/c5251854/content.html' }
+];
+
+function escapeHtml(value) {
+  return String(value || '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+}
+
+function renderPolicies(items) {
+  const feed = document.getElementById('policyFeed');
+  feed.innerHTML = items.slice(0, 3).map((item, index) => `
+    <a href="${escapeHtml(item.url)}" class="news-card policy-card reveal visible" target="_blank" rel="noopener noreferrer">
+      <div class="news-thumb"><span class="tag">官方文件</span><span class="policy-index">0${index + 1}</span></div>
+      <div class="news-body">
+        <span class="news-date">${escapeHtml(item.date)}</span>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.number || '国家税务总局政策法规库')}</p>
+        <span class="news-more">查看原文 <span aria-hidden="true">→</span></span>
+      </div>
+    </a>`).join('');
+}
+
+async function loadLatestPolicies() {
+  const status = document.getElementById('policyStatus');
+  try {
+    const response = await fetch('./policy-feed.php', { headers: { Accept: 'application/json' } });
+    if (!response.ok) throw new Error('Policy feed unavailable');
+    const data = await response.json();
+    if (!Array.isArray(data.items) || !data.items.length) throw new Error('Policy feed is empty');
+    renderPolicies(data.items);
+    status.textContent = `已同步官方法规库 · 更新于 ${data.updatedAt || '刚刚'}`;
+  } catch (error) {
+    renderPolicies(fallbackPolicies);
+    status.innerHTML = `当前显示最近一次收录的官方文件 · <a href="${POLICY_LIBRARY_URL}" target="_blank" rel="noopener noreferrer">前往国家税务总局政策法规库</a>`;
+  }
+}
+loadLatestPolicies();
 
 // 在线咨询表单提交（存 localStorage，后台 admin.html 读取）
 document.getElementById('memberForm').addEventListener('submit', function(e) {

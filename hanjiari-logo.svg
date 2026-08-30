@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 260" role="img" aria-labelledby="title desc">
+  <title id="title">上海瀚加日财务咨询有限公司标志</title>
+  <desc id="desc">由中国、日本、韩国、英国四个 90 度对称色段与中国古钱币方孔徽记组成，象征跨文化财务协同、价值流通与制度信任。</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d4b483"/>
+      <stop offset="1" stop-color="#a9783d"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(12 10)">
+    <circle cx="120" cy="120" r="104" fill="#0d2b45"/>
+    <circle cx="120" cy="120" r="82" fill="none" stroke="url(#gold)" stroke-width="2"/>
+    <!-- 严格 90° 对称的四联环：中 / 日 / 韩 / 英跨文化协作 -->
+    <g fill="none" stroke-width="13" stroke-linecap="round">
+      <path d="M120 40A80 80 0 0 1 176.57 63.43" stroke="#c83f38"/>
+      <path d="M120 40A80 80 0 0 1 176.57 63.43" transform="rotate(90 120 120)" stroke="#dd7555"/>
+      <path d="M120 40A80 80 0 0 1 176.57 63.43" transform="rotate(180 120 120)" stroke="#3c79b3"/>
+      <path d="M120 40A80 80 0 0 1 176.57 63.43" transform="rotate(270 120 120)" stroke="#427579"/>
+    </g>
+    <!-- 中国古钱币：天圆地方，寓意价值流通、规则与信任 -->
+    <circle cx="120" cy="120" r="45" fill="url(#gold)"/>
+    <circle cx="120" cy="120" r="38" fill="none" stroke="#f8edda" stroke-width="2" opacity=".75"/>
+    <rect x="105" y="105" width="30" height="30" rx="2" fill="#0d2b45"/>
+    <rect x="110" y="110" width="20" height="20" rx="1" fill="#f7f5f1"/>
+    <path d="M120 82v9M158 120h-9M120 158v-9M82 120h9" fill="none" stroke="#f8edda" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+  </g>
+  <g fill="#0d2b45" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, Arial, sans-serif">
+    <text x="264" y="104" font-size="44" font-weight="700" letter-spacing="2">瀚加日财务咨询</text>
+    <text x="266" y="145" font-size="19" font-weight="600" letter-spacing="3.2" fill="#a9783d">HANJIARI FINANCIAL CONSULTING</text>
+    <path d="M266 170h720" stroke="#d8e0e5"/>
+    <text x="266" y="204" font-size="17" letter-spacing="1.1" fill="#5c6b7a">上海瀚加日财务咨询有限公司  ·  中国  ·  日本  ·  韩国</text>
+  </g>
+</svg>
